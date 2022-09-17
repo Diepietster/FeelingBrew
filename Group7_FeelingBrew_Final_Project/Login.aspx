@@ -67,7 +67,7 @@
                                     <asp:Label ID="lblPassword" runat="server" Font-Names="Consolas" Text="Enter Password:"></asp:Label>
                                 </td>
                                 <td class="auto-style7">
-                                    <asp:TextBox ID="txtPassword" runat="server" Width="230px" Font-Names="Consolas"></asp:TextBox>
+                                    <asp:TextBox ID="txtPassword" runat="server" Width="230px" Font-Names="Consolas" TextMode="Password"></asp:TextBox>
                                 </td>
                                 <td class="auto-style3">
                                     <asp:RequiredFieldValidator ID="requiredFieldUsername0" runat="server" ControlToValidate="txtPassword" ErrorMessage="Please enter a password." Font-Names="Consolas" ForeColor="Maroon"></asp:RequiredFieldValidator>

@@ -28,7 +28,13 @@ namespace Group7_FeelingBrew_Final_Project
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
+            Session["cCode"] = ddListClients.SelectedIndex;
             lblMessage.Text = "Client deleted!";
+        }
+
+        protected void txtFilterClients_TextChanged(object sender, EventArgs e)
+        {
+            Session["txtFilter"] = txtFilterClients.Text;
         }
     }
 }

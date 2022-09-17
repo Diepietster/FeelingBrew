@@ -243,7 +243,7 @@
             </tr>
             </table>
         <p>
-            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePageClient.aspx">Retrun to home page</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePageClient.aspx">Return to home page</asp:HyperLink>
         </p>
     </form>
 </body>

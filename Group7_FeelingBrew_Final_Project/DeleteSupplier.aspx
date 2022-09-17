@@ -93,7 +93,7 @@
                                     <asp:Label ID="lblSupplierFilter" runat="server" Font-Names="Consolas" Text="Filter supplier according to any field:"></asp:Label>
                                 </td>
                                 <td class="auto-style21">
-                                    <asp:TextBox ID="txtFilterSupplier" runat="server" Width="230px" Font-Names="Consolas"></asp:TextBox>
+                                    <asp:TextBox ID="txtFilterSupplier" runat="server" Width="230px" Font-Names="Consolas" OnTextChanged="txtFilterSupplier_TextChanged"></asp:TextBox>
                                 </td>
                                 <td>&nbsp;</td>
                             </tr>
@@ -137,7 +137,7 @@
             </tr>
             </table>
         <p>
-            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Retrun to home page</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Return to home page</asp:HyperLink>
         </p>
     </form>
 </body>

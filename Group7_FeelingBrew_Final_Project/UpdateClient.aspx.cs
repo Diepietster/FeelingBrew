@@ -19,6 +19,7 @@ namespace Group7_FeelingBrew_Final_Project
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
+            Session["cCode"] = ddListClients.SelectedIndex; 
             Session["clientName"] = txtCName.Text;
             Session["clientSurname"] = txtCSurname.Text;
             Session["cCompanyName"] = txtCompanyName.Text;
