@@ -18,7 +18,7 @@ namespace Group7_FeelingBrew_Final_Project.Email_Class
                 client.Credentials = login;
                 MailMessage alert = new MailMessage();
                 alert.To.Add(emailAddress);
-                alert.From = new MailAddress("detectionalert123@gmail.com");
+                alert.From = new MailAddress("feelingbrewapp@gmail.com");
                 alert.Subject = emailSubject;
                 alert.Body = body;
                 client.Send(alert);
