@@ -23,12 +23,18 @@ namespace Group7_FeelingBrew_Final_Project
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
+            Session["sCode"] = ddListSupplier.SelectedIndex;
             lblMessage.Text = "Supplier deleted";
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("HomePage.aspx");
+        }
+
+        protected void txtFilterSupplier_TextChanged(object sender, EventArgs e)
+        {
+            Session["txtFilter"] = txtFilterSupplier.Text;
         }
     }
 }

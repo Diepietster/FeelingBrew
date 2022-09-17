@@ -71,6 +71,7 @@ namespace Group7_FeelingBrew_Final_Project
 
         protected void btnUpdateSupplier_Click(object sender, EventArgs e)
         {
+            Session["sCode"] = ddListSupplier.SelectedIndex;
             Session["companyName"] = txtCompanyNameS.Text;
             Session["sProvince"] = ddListProvince.SelectedValue;
             Session["sStreetNo"] = txtSStreetNo.Text;

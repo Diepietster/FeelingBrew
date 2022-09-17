@@ -149,6 +149,7 @@
     <Compile Include="DeleteSupplier.aspx.designer.cs">
       <DependentUpon>DeleteSupplier.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Email Class\Email.cs" />
     <Compile Include="HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
