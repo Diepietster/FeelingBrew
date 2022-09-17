@@ -92,7 +92,7 @@
                                     <asp:Label ID="lblClientFilter" runat="server" Font-Names="Consolas" Text="Filter clients according to any field:"></asp:Label>
                                 </td>
                                 <td class="auto-style21">
-                                    <asp:TextBox ID="txtFilterClients" runat="server" Width="230px" Font-Names="Consolas"></asp:TextBox>
+                                    <asp:TextBox ID="txtFilterClients" runat="server" Width="230px" Font-Names="Consolas" OnTextChanged="txtFilterClients_TextChanged"></asp:TextBox>
                                 </td>
                                 <td>&nbsp;</td>
                             </tr>
@@ -136,7 +136,7 @@
             </tr>
             </table>
         <p>
-            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Retrun to home page</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Return to home page</asp:HyperLink>
         </p>
     </form>
 </body>
