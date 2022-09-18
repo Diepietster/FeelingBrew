@@ -35,10 +35,10 @@ namespace Group7_FeelingBrew_Final_Project
             {
                 DateTime dateFrom = Convert.ToDateTime(txtDateFrom.Text);
                 DateTime dateTo = Convert.ToDateTime(txtDateTo.Text);
-                cmd = new SqlCommand($"SELECT sod.BeerCode AS [Beer Code], SUM(sod.QtySold * sod.BeerUnitPricePerBottle) AS [Amount Of Sales] FROM Beers b, SalesOrders so, SalesOrdersDetails sod WHERE sod.BeerCode = b.BeerCode AND so.SoNumber = sod.SalesOrderId AND so.SoDate BETWEEN '{dateFrom}' AND '{dateTo}' GROUP BY sod.BeerCode ORDER BY SUM(sod.QtySold * sod.BeerUnitPricePerBottle) DESC", conn);
+                cmd = new SqlCommand($"SELECT b.beerName AS [Beer Name], SUM(sod.QtySold * sod.BeerUnitPricePerBottle) AS [Amount Of Sales] FROM Beers b, SalesOrders so, SalesOrdersDetails sod WHERE sod.BeerCode = b.BeerCode AND so.SoNumber = sod.SalesOrderId AND so.SoDate BETWEEN '{dateFrom}' AND '{dateTo}' GROUP BY b.beerName ORDER BY SUM(sod.QtySold * sod.BeerUnitPricePerBottle) DESC", conn);
             } else
             {
-                cmd = new SqlCommand($"SELECT sod.BeerCode AS [Beer Code], SUM(sod.QtySold * sod.BeerUnitPricePerBottle) AS [Amount Of Sales] FROM Beers b, SalesOrders so, SalesOrdersDetails sod WHERE sod.BeerCode = b.BeerCode AND so.SoNumber = sod.SalesOrderId GROUP BY sod.BeerCode ORDER BY SUM(sod.QtySold * sod.BeerUnitPricePerBottle) DESC", conn);
+                cmd = new SqlCommand($"SELECT b.beerName AS [Beer Name], SUM(sod.QtySold * sod.BeerUnitPricePerBottle) AS [Amount Of Sales] FROM Beers b, SalesOrders so, SalesOrdersDetails sod WHERE sod.BeerCode = b.BeerCode AND so.SoNumber = sod.SalesOrderId GROUP BY b.beerName ORDER BY SUM(sod.QtySold * sod.BeerUnitPricePerBottle) DESC", conn);
             }
             DataSet ds = new DataSet();
             adapter.SelectCommand = cmd;
@@ -53,15 +53,16 @@ namespace Group7_FeelingBrew_Final_Project
                 DateTime dateFrom = Convert.ToDateTime(txtDateFrom.Text);
                 DateTime dateTo = Convert.ToDateTime(txtDateTo.Text);
                 cmd = new SqlCommand($"SELECT b.BeerName, SUM(sod.QtySold * sod.BeerUnitPricePerBottle) AS [Amount Of Sales] FROM Beers b, SalesOrders so, SalesOrdersDetails sod WHERE sod.BeerCode = b.BeerCode AND so.SoNumber = sod.SalesOrderId AND so.SoDate BETWEEN '{dateFrom}' AND '{dateTo}' GROUP BY b.BeerName ORDER BY SUM(sod.QtySold * sod.BeerUnitPricePerBottle) DESC", conn);
+                dataChart.Titles[0].Text = "Top Beers - By Amount Sold from " + dateFrom + " to " + dateTo;
             }
             else
             {
                 cmd = new SqlCommand($"SELECT b.BeerName, SUM(sod.QtySold * sod.BeerUnitPricePerBottle) AS [Amount Of Sales] FROM Beers b, SalesOrders so, SalesOrdersDetails sod WHERE sod.BeerCode = b.BeerCode AND so.SoNumber = sod.SalesOrderId GROUP BY b.BeerName ORDER BY SUM(sod.QtySold * sod.BeerUnitPricePerBottle) DESC", conn);
+                dataChart.Titles[0].Text = "Top Beers - By Amount Sold";
             }
             reader = cmd.ExecuteReader();
             dataChart.Series["Series1"].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Column;
             dataChart.Series["Series1"].Points.Clear(); // Prevents graph from adding new points on PostBack
-            dataChart.Titles[0].Text = "Top Beers - By Amount Sold";
             dataChart.Series["Series1"].IsValueShownAsLabel = false;
             dataChart.ChartAreas[0].AxisX.MajorGrid.LineWidth = 0;
             dataChart.ChartAreas[0].AxisY.MajorGrid.LineWidth = 0;
