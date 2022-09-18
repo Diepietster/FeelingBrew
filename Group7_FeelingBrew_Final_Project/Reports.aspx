@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Reports.aspx.cs" Inherits="Group7_FeelingBrew_Final_Project.Reports" %>
 
+<%@ Register assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" namespace="System.Web.UI.DataVisualization.Charting" tagprefix="asp" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -81,17 +83,24 @@
                                     <asp:Label ID="lblsubHeading1" runat="server" Font-Names="Consolas" Text="Select report to display:" Font-Bold="True" Font-Size="Large"></asp:Label>
                                 </td>
                     <td class="auto-style27">
-                        &nbsp;</td>
+                        <asp:Label ID="lblDateFrom" runat="server" Text="From Date:"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="lblDateTo" runat="server" Text="To Date:"></asp:Label>
+                        <br />
+                        <asp:TextBox ID="txtDateFrom" runat="server"></asp:TextBox>
+&nbsp;&nbsp;
+                        <asp:TextBox ID="txtDateTo" runat="server"></asp:TextBox>
+                    </td>
                     <td class="auto-style28">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style29">&nbsp;</td>
                     <td class="auto-style27">
-                    <asp:Button ID="btnTopBeers" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="39px" Text="Top Beers" Width="150px"  />
+                    <asp:Button ID="btnTopBeers" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="39px" Text="Top Beers" Width="150px" OnClick="btnTopBeers_Click"  />
                                 &nbsp;&nbsp;
-                    <asp:Button ID="btnPO" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="39px" Text="Purchase Order" Width="150px"  />
+                    <asp:Button ID="btnPO" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="39px" Text="Purchase Order" Width="150px" OnClick="btnPO_Click"  />
                                 &nbsp;&nbsp;
-                    <asp:Button ID="btnSO" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="39px" Text="Sales Order" Width="150px"  />
+                    <asp:Button ID="btnSO" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="39px" Text="Sales Order" Width="150px" OnClick="btnSO_Click"  />
                                 <br />
                                 </td>
                     <td class="auto-style28">&nbsp;</td>
@@ -106,7 +115,7 @@
                 <tr>
                     <td class="auto-style30">&nbsp;</td>
                     <td class="auto-style11">
-                                    &nbsp;<asp:GridView ID="gridViewData" runat="server" Font-Names="Consolas" Height="127px" Width="389px">
+                                    &nbsp;<asp:GridView ID="gridViewData" runat="server" Font-Names="Consolas" Height="127px" Width="389px" AllowCustomPaging="True">
                                     </asp:GridView>
                                 </td>
                     <td>&nbsp;</td>
@@ -132,6 +141,28 @@
                                 <td>&nbsp;</td>
                             </tr>
                             </table>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style30">
+                                    <asp:Label ID="lblsubHeading2" runat="server" Font-Names="Consolas" Text="Graphs &amp; Charts:" Font-Bold="True" Font-Size="Large"></asp:Label>
+                                </td>
+                    <td class="auto-style10">
+                        <asp:Chart ID="dataChart" runat="server" Width="518px">
+                            <series>
+                                <asp:Series Name="Series1">
+                                </asp:Series>
+                            </series>
+                            <chartareas>
+                                <asp:ChartArea Name="ChartArea1">
+                                </asp:ChartArea>
+                            </chartareas>
+                            <Titles>
+                                <asp:Title Name="Title1">
+                                </asp:Title>
+                            </Titles>
+                        </asp:Chart>
                     </td>
                     <td>&nbsp;</td>
                 </tr>

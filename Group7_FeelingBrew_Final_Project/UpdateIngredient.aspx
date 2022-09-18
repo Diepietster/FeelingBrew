@@ -76,9 +76,6 @@
             text-align: right;
             width: 408px;
         }
-        .auto-style28 {
-            width: 408px;
-        }
         .auto-style29 {
             width: 813px;
             text-align: left;
@@ -137,6 +134,8 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="txtFilterIngredient" runat="server" Width="230px" Font-Names="Consolas" CssClass="auto-style25"></asp:TextBox>
+                                &nbsp;
+                    <asp:Button ID="btnSearch" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="30px" OnClick="btnSearch_Click" Text="Search" Width="141px" CausesValidation="False" />
                                 </td>
                                 <td>&nbsp;</td>
                             </tr>
@@ -145,7 +144,7 @@
                                     <asp:Label ID="lblIngredientEdit" runat="server" Font-Names="Consolas" Text="Select ingredient to edit:"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:DropDownList ID="ddListIngredient" runat="server" Font-Names="Consolas">
+                                    <asp:DropDownList ID="ddListIngredient" runat="server" Font-Names="Consolas" AutoPostBack="True" OnSelectedIndexChanged="ddListIngredient_SelectedIndexChanged">
                                         <asp:ListItem>Please Select</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>

@@ -41,10 +41,7 @@
             text-align: right;
             width: 398px;
         }
-        .auto-style28 {
-            width: 398px;
-        }
-    </style>
+        </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -98,6 +95,8 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="txtFilterBeer" runat="server" Width="230px" Font-Names="Consolas" CssClass="auto-style25"></asp:TextBox>
+                                &nbsp;
+                    <asp:Button ID="btnSearch" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="30px" OnClick="btnSearch_Click" Text="Search" Width="141px" CausesValidation="False" />
                                 </td>
                                 <td>&nbsp;</td>
                             </tr>

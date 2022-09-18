@@ -79,10 +79,7 @@
             text-align: right;
             width: 408px;
         }
-        .auto-style28 {
-            width: 408px;
-        }
-    </style>
+        </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -136,6 +133,8 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="txtFilterBeer" runat="server" Width="230px" Font-Names="Consolas" CssClass="auto-style25"></asp:TextBox>
+                                &nbsp;
+                    <asp:Button ID="btnSearch" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="30px" OnClick="btnSearch_Click" Text="Search" Width="141px" CausesValidation="False" />
                                 </td>
                                 <td>&nbsp;</td>
                             </tr>
@@ -144,7 +143,7 @@
                                     <asp:Label ID="lblBeerEdit" runat="server" Font-Names="Consolas" Text="Select beer to edit:"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:DropDownList ID="ddListBeer" runat="server" Font-Names="Consolas">
+                                    <asp:DropDownList ID="ddListBeer" runat="server" Font-Names="Consolas" AutoPostBack="True" OnSelectedIndexChanged="ddListBeer_SelectedIndexChanged">
                                         <asp:ListItem>Please Select</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
@@ -253,7 +252,7 @@
             </tr>
             </table>
         <p>
-            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Retrun to home page</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Return to home page</asp:HyperLink>
         </p>
     </form>
 </body>
