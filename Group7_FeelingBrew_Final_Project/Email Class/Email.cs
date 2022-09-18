@@ -6,7 +6,7 @@ namespace Group7_FeelingBrew_Final_Project.Email_Class
 {
     public class Email
     {
-        public void SendEmail(string body, string emailAddress, string emailSubject)
+        public void SendEmail(string body, string emailSubject)
         {
             try                                                                                                                            //Use try catch block to catch any errors if errors occur
             {
@@ -17,7 +17,7 @@ namespace Group7_FeelingBrew_Final_Project.Email_Class
                 client.UseDefaultCredentials = false;
                 client.Credentials = login;
                 MailMessage alert = new MailMessage();
-                alert.To.Add(emailAddress);
+                alert.To.Add("pietercoetzee987@gmail.com");
                 alert.From = new MailAddress("feelingbrewapp@gmail.com");
                 alert.Subject = emailSubject;
                 alert.Body = body;
