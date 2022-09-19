@@ -26,6 +26,8 @@ namespace Group7_FeelingBrew_Final_Project
                 ddListIngrUnitType.SelectedIndex = 0;
                 ddListSupplier.SelectedIndex = 0;
                 lblMessage.Text = string.Empty;
+                populateIngrUnitTypeList();
+                populateSupplierList();
             }
         }
 
@@ -85,7 +87,6 @@ namespace Group7_FeelingBrew_Final_Project
             cmd = new SqlCommand($"INSERT INTO Ingredients (IngrDescription, IngrLatestCost, QtyOnHand, IngrUnitTypeCode, SplrCode) VALUES('{Session["ingrDesc"]}','{Session["ingrCost"]}','{Session["ingrQty"]}','{ingrUnitTypeID}','{ingrSupplierID}')", conn);
             DataSet ds = new DataSet();
             adapter.InsertCommand = cmd;
-            adapter.Fill(ds);
             cmd.ExecuteNonQuery();
             conn.Close();
 

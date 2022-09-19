@@ -78,7 +78,7 @@ namespace Group7_FeelingBrew_Final_Project
         {
             ddListIngredient.Items.Clear();
             conn.Open();
-            cmd = new SqlCommand(@"SELECT IngrCode,IngrDescription FROM Ingredients", conn);
+            cmd = new SqlCommand(@"SELECT IngredientCode,IngrDescription FROM Ingredients", conn);
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
@@ -90,7 +90,7 @@ namespace Group7_FeelingBrew_Final_Project
         private void fillGridView()
         {
             conn.Open();
-            cmd = new SqlCommand(@"SELECT IngrCode AS [Ingredient Code], IngrDescription AS [Ingredient Description], IngrLatestCost AS [Ingredient - Latest Cost], QtyOnHand AS [Ingredient - Quantity on Hand], IngrUnitTypeCode AS [Ingredient Unit Type Code], SplrCode AS [Supplier Code] FROM Ingredients", conn);
+            cmd = new SqlCommand(@"SELECT IngredientCode AS [Ingredient Code], IngrDescription AS [Ingredient Description], IngrLatestCost AS [Ingredient - Latest Cost], QtyOnHand AS [Ingredient - Quantity on Hand], IngrUnitTypeCode AS [Ingredient Unit Type Code], SplrCode AS [Supplier Code] FROM Ingredients", conn);
             DataSet ds = new DataSet();
             adapter.SelectCommand = cmd;
             adapter.Fill(ds);
@@ -112,7 +112,7 @@ namespace Group7_FeelingBrew_Final_Project
             str = ddListIngredient.SelectedItem.Text.Split(' ');
             string ingrIDString = str[1];
             int ingrID = int.Parse(ingrIDString);
-            cmd = new SqlCommand($"UPDATE Ingredients SET IngrDescription = '{Session["ingrDesc"]}', IngrLatestCost = '{Session["ingrCost"]}', QtyOnHand = '{Session["ingrQty"]}', IngrUnitTypeCode = '{Session["ingrUnitType"]}', SplrCode = '{Session["ingrSupplier"]}' WHERE IngrCode = '{ingrID}'", conn);
+            cmd = new SqlCommand($"UPDATE Ingredients SET IngrDescription = '{Session["ingrDesc"]}', IngrLatestCost = '{Session["ingrCost"]}', QtyOnHand = '{Session["ingrQty"]}', IngrUnitTypeCode = '{Session["ingrUnitType"]}', SplrCode = '{Session["ingrSupplier"]}' WHERE IngredientCode = '{ingrID}'", conn);
             adapter.UpdateCommand = cmd;
             cmd.ExecuteNonQuery();
             conn.Close();
@@ -134,11 +134,11 @@ namespace Group7_FeelingBrew_Final_Project
             conn.Open();
             if (txtFilterIngredient.Text != "")
             {
-                cmd = new SqlCommand($"SELECT IngrCode AS [Ingredient Code], IngrDescription AS [Ingredient Description], IngrLatestCost AS [Ingredient - Latest Cost], QtyOnHand AS [Ingredient - Quantity on Hand], IngrUnitTypeCode AS [Ingredient Unit Type Code], SplrCode AS [Supplier Code] FROM Ingredients WHERE IngrDescription LIKE '%{Session["filterIngredient"]}%' OR IngrLatestCost LIKE '%{Session["filterIngredient"]}%' OR QtyOnHand LIKE '%{Session["filterIngredient"]}%' OR IngrUnitTypeCode LIKE '%{Session["filterIngredient"]}%' OR SplrCode LIKE '%{Session["filterIngredient"]}%'", conn);
+                cmd = new SqlCommand($"SELECT IngredientCode AS [Ingredient Code], IngrDescription AS [Ingredient Description], IngrLatestCost AS [Ingredient - Latest Cost], QtyOnHand AS [Ingredient - Quantity on Hand], IngrUnitTypeCode AS [Ingredient Unit Type Code], SplrCode AS [Supplier Code] FROM Ingredients WHERE IngrDescription LIKE '%{Session["filterIngredient"]}%' OR IngrLatestCost LIKE '%{Session["filterIngredient"]}%' OR QtyOnHand LIKE '%{Session["filterIngredient"]}%' OR IngrUnitTypeCode LIKE '%{Session["filterIngredient"]}%' OR SplrCode LIKE '%{Session["filterIngredient"]}%'", conn);
             }
             else
             {
-                cmd = new SqlCommand($"SELECT IngrCode AS [Ingredient Code], IngrDescription AS [Ingredient Description], IngrLatestCost AS [Ingredient - Latest Cost], QtyOnHand AS [Ingredient - Quantity on Hand], IngrUnitTypeCode AS [Ingredient Unit Type Code], SplrCode AS [Supplier Code] FROM Ingredients", conn);
+                cmd = new SqlCommand($"SELECT IngredientCode AS [Ingredient Code], IngrDescription AS [Ingredient Description], IngrLatestCost AS [Ingredient - Latest Cost], QtyOnHand AS [Ingredient - Quantity on Hand], IngrUnitTypeCode AS [Ingredient Unit Type Code], SplrCode AS [Supplier Code] FROM Ingredients", conn);
             }
             DataSet ds = new DataSet();
             adapter.SelectCommand = cmd;
@@ -157,7 +157,7 @@ namespace Group7_FeelingBrew_Final_Project
             int ingrID = int.Parse(ingrIDString);
 
             conn.Open();
-            cmd = new SqlCommand($"SELECT * FROM Ingredients WHERE IngrCode = '{ingrID}'", conn);
+            cmd = new SqlCommand($"SELECT * FROM Ingredients WHERE IngredientCode = '{ingrID}'", conn);
             var dataReader = cmd.ExecuteReader();
             ingrList = Getlist<Ingredient>(dataReader);
 

@@ -131,7 +131,9 @@
                                 <td class="auto-style31">
                                     <asp:TextBox ID="txtFilterPO" runat="server" Width="230px" Font-Names="Consolas" CssClass="auto-style25"></asp:TextBox>
                                 </td>
-                                <td>&nbsp;</td>
+                                <td>
+                    <asp:Button ID="btnSearch" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="39px" Text="Search" Width="150px" OnClick="btnSearch_Click"  />
+                                </td>
                             </tr>
                             <tr>
                                 <td class="auto-style26">

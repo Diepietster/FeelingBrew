@@ -7,7 +7,7 @@ namespace Group7_FeelingBrew_Final_Project
 {
     public class Ingredient
     {
-        public int IngrCode { get; set; }
+        public int IngredientCode { get; set; }
         public string IngrDescription { get; set; }
         public float IngrLatestCost { get; set; }
         public int QtyOnHand { get; set; }
