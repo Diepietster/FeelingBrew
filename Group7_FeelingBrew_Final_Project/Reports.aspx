@@ -115,7 +115,7 @@
                 <tr>
                     <td class="auto-style30">&nbsp;</td>
                     <td class="auto-style11">
-                                    &nbsp;<asp:GridView ID="gridViewData" runat="server" Font-Names="Consolas" Height="127px" Width="389px" AllowCustomPaging="True">
+                                    &nbsp;<asp:GridView ID="gridViewData" runat="server" Font-Names="Consolas" Height="127px" Width="535px" AllowPaging="True" OnPageIndexChanging="gridViewData_PageIndexChanging1">
                                     </asp:GridView>
                                 </td>
                     <td>&nbsp;</td>
@@ -149,7 +149,7 @@
                                     <asp:Label ID="lblsubHeading2" runat="server" Font-Names="Consolas" Text="Graphs &amp; Charts:" Font-Bold="True" Font-Size="Large"></asp:Label>
                                 </td>
                     <td class="auto-style10">
-                        <asp:Chart ID="dataChart" runat="server" Width="518px">
+                        <asp:Chart ID="dataChart" runat="server" Width="518px" EnableViewState="True">
                             <series>
                                 <asp:Series Name="Series1">
                                 </asp:Series>
