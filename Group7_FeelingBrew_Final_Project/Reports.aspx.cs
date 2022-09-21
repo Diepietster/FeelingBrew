@@ -38,18 +38,18 @@ namespace Group7_FeelingBrew_Final_Project
                 {
                     DateTime dateFrom = Convert.ToDateTime(txtDateFrom.Text);
                     DateTime dateTo = Convert.ToDateTime(txtDateTo.Text);
-                    cmd = new SqlCommand($"SELECT b.beerName AS [Beer Name], SUM(sod.QtySold * sod.BeerUnitPricePerBottle) AS [Amount Of Sales] FROM Beers b, SalesOrders so, SalesOrdersDetails sod WHERE sod.BeerCode = b.BeerCode AND so.SoDate BETWEEN '{dateFrom}' AND '{dateTo}' GROUP BY b.beerName ORDER BY SUM(sod.QtySold * sod.BeerUnitPricePerBottle) DESC", conn);
+                    cmd = new SqlCommand($"SELECT b.beerName AS [Beer Name], SUM(sod.QtySold * sod.BeerUnitPricePerBottle) AS [Amount Of Sales] FROM Beers b, SalesOrders so, SalesOrdersDetails sod WHERE so.SoNumber = sod.SalesOrderId AND sod.BeerCode = b.BeerCode AND so.SoDate BETWEEN '{dateFrom}' AND '{dateTo}' GROUP BY b.beerName ORDER BY SUM(sod.QtySold * sod.BeerUnitPricePerBottle) DESC", conn);
                     if(str != "") // Search has been specified
                     {
-                        cmd = new SqlCommand($"SELECT b.beerName AS [Beer Name], SUM(sod.QtySold * sod.BeerUnitPricePerBottle) AS [Amount Of Sales] FROM Beers b, SalesOrders so, SalesOrdersDetails sod WHERE sod.BeerCode = b.BeerCode AND (b.beerName LIKE '%{str}%' OR ((sod.QtySold * sod.BeerUnitPricePerBottle) LIKE '%{str}%')) AND so.SoDate BETWEEN '{dateFrom}' AND '{dateTo}' GROUP BY b.beerName ORDER BY SUM(sod.QtySold * sod.BeerUnitPricePerBottle) DESC", conn);
+                        cmd = new SqlCommand($"SELECT b.beerName AS [Beer Name], SUM(sod.QtySold * sod.BeerUnitPricePerBottle) AS [Amount Of Sales] FROM Beers b, SalesOrders so, SalesOrdersDetails sod WHERE so.SoNumber = sod.SalesOrderId AND sod.BeerCode = b.BeerCode AND (b.beerName LIKE '%{str}%' OR ((sod.QtySold * sod.BeerUnitPricePerBottle) LIKE '%{str}%')) AND so.SoDate BETWEEN '{dateFrom}' AND '{dateTo}' GROUP BY b.beerName ORDER BY SUM(sod.QtySold * sod.BeerUnitPricePerBottle) DESC", conn);
                     }
                 }
                 else
                 {
-                    cmd = new SqlCommand($"SELECT b.beerName AS [Beer Name], SUM(sod.QtySold * sod.BeerUnitPricePerBottle) AS [Amount Of Sales] FROM Beers b, SalesOrders so, SalesOrdersDetails sod WHERE sod.BeerCode = b.BeerCode GROUP BY b.beerName ORDER BY SUM(sod.QtySold * sod.BeerUnitPricePerBottle) DESC", conn);
+                    cmd = new SqlCommand($"SELECT b.beerName AS [Beer Name], SUM(sod.QtySold * sod.BeerUnitPricePerBottle) AS [Amount Of Sales] FROM Beers b, SalesOrders so, SalesOrdersDetails sod WHERE so.SoNumber = sod.SalesOrderId AND sod.BeerCode = b.BeerCode GROUP BY b.beerName ORDER BY SUM(sod.QtySold * sod.BeerUnitPricePerBottle) DESC", conn);
                     if(str != "") // Search has been specified
                     {
-                        cmd = new SqlCommand($"SELECT b.beerName AS [Beer Name], SUM(sod.QtySold * sod.BeerUnitPricePerBottle) AS [Amount Of Sales] FROM Beers b, SalesOrders so, SalesOrdersDetails sod WHERE sod.BeerCode = b.BeerCode AND (b.beerName LIKE '%{str}%' OR ((sod.QtySold * sod.BeerUnitPricePerBottle) LIKE '%{str}%')) GROUP BY b.beerName ORDER BY SUM(sod.QtySold * sod.BeerUnitPricePerBottle) DESC", conn);
+                        cmd = new SqlCommand($"SELECT b.beerName AS [Beer Name], SUM(sod.QtySold * sod.BeerUnitPricePerBottle) AS [Amount Of Sales] FROM Beers b, SalesOrders so, SalesOrdersDetails sod WHERE so.SoNumber = sod.SalesOrderId AND sod.BeerCode = b.BeerCode AND (b.beerName LIKE '%{str}%' OR ((sod.QtySold * sod.BeerUnitPricePerBottle) LIKE '%{str}%')) GROUP BY b.beerName ORDER BY SUM(sod.QtySold * sod.BeerUnitPricePerBottle) DESC", conn);
                     }
                 }
                 DataSet ds = new DataSet();
