@@ -25,19 +25,32 @@ namespace Group7_FeelingBrew_Final_Project
 
         private void updateGridView()
         {
-            int select = int.Parse(Session["select"].ToString());
-            if(select == 0)
+            updateGridView("");
+        }
+
+        private void updateGridView(string str) // str will be used to see if user typed in the filter box or not
+        {
+            int select = int.Parse(Session["select"].ToString()); // Assign saved session value to an Integer to See if "Top Beers" or "Purchase Orders" or "Sales Orders" has been selected
+            if(select == 0) // When the user selected "Top Beers"
             {
                 conn.Open();
                 if (txtDateFrom.Text != "" && txtDateTo.Text != "")
                 {
                     DateTime dateFrom = Convert.ToDateTime(txtDateFrom.Text);
                     DateTime dateTo = Convert.ToDateTime(txtDateTo.Text);
-                    cmd = new SqlCommand($"SELECT b.beerName AS [Beer Name], SUM(sod.QtySold * sod.BeerUnitPricePerBottle) AS [Amount Of Sales] FROM Beers b, SalesOrders so, SalesOrdersDetails sod WHERE sod.BeerCode = b.BeerCode AND so.SoNumber = sod.SalesOrderId AND so.SoDate BETWEEN '{dateFrom}' AND '{dateTo}' GROUP BY b.beerName ORDER BY SUM(sod.QtySold * sod.BeerUnitPricePerBottle) DESC", conn);
+                    cmd = new SqlCommand($"SELECT b.beerName AS [Beer Name], SUM(sod.QtySold * sod.BeerUnitPricePerBottle) AS [Amount Of Sales] FROM Beers b, SalesOrders so, SalesOrdersDetails sod WHERE sod.BeerCode = b.BeerCode AND so.SoDate BETWEEN '{dateFrom}' AND '{dateTo}' GROUP BY b.beerName ORDER BY SUM(sod.QtySold * sod.BeerUnitPricePerBottle) DESC", conn);
+                    if(str != "") // Search has been specified
+                    {
+                        cmd = new SqlCommand($"SELECT b.beerName AS [Beer Name], SUM(sod.QtySold * sod.BeerUnitPricePerBottle) AS [Amount Of Sales] FROM Beers b, SalesOrders so, SalesOrdersDetails sod WHERE sod.BeerCode = b.BeerCode AND (b.beerName LIKE '%{str}%' OR ((sod.QtySold * sod.BeerUnitPricePerBottle) LIKE '%{str}%')) AND so.SoDate BETWEEN '{dateFrom}' AND '{dateTo}' GROUP BY b.beerName ORDER BY SUM(sod.QtySold * sod.BeerUnitPricePerBottle) DESC", conn);
+                    }
                 }
                 else
                 {
-                    cmd = new SqlCommand($"SELECT b.beerName AS [Beer Name], SUM(sod.QtySold * sod.BeerUnitPricePerBottle) AS [Amount Of Sales] FROM Beers b, SalesOrders so, SalesOrdersDetails sod WHERE sod.BeerCode = b.BeerCode AND so.SoNumber = sod.SalesOrderId GROUP BY b.beerName ORDER BY SUM(sod.QtySold * sod.BeerUnitPricePerBottle) DESC", conn);
+                    cmd = new SqlCommand($"SELECT b.beerName AS [Beer Name], SUM(sod.QtySold * sod.BeerUnitPricePerBottle) AS [Amount Of Sales] FROM Beers b, SalesOrders so, SalesOrdersDetails sod WHERE sod.BeerCode = b.BeerCode GROUP BY b.beerName ORDER BY SUM(sod.QtySold * sod.BeerUnitPricePerBottle) DESC", conn);
+                    if(str != "") // Search has been specified
+                    {
+                        cmd = new SqlCommand($"SELECT b.beerName AS [Beer Name], SUM(sod.QtySold * sod.BeerUnitPricePerBottle) AS [Amount Of Sales] FROM Beers b, SalesOrders so, SalesOrdersDetails sod WHERE sod.BeerCode = b.BeerCode AND (b.beerName LIKE '%{str}%' OR ((sod.QtySold * sod.BeerUnitPricePerBottle) LIKE '%{str}%')) GROUP BY b.beerName ORDER BY SUM(sod.QtySold * sod.BeerUnitPricePerBottle) DESC", conn);
+                    }
                 }
                 DataSet ds = new DataSet();
                 adapter.SelectCommand = cmd;
@@ -46,7 +59,7 @@ namespace Group7_FeelingBrew_Final_Project
                 gridViewData.DataBind();
                 conn.Close();
             }
-            if(select == 1)
+            if(select == 1) // When the user selected "Purchase Orders"
             {
                 conn.Open();
                 if (txtDateFrom.Text != "" && txtDateTo.Text != "")
@@ -54,10 +67,18 @@ namespace Group7_FeelingBrew_Final_Project
                     DateTime dateFrom = Convert.ToDateTime(txtDateFrom.Text);
                     DateTime dateTo = Convert.ToDateTime(txtDateTo.Text);
                     cmd = new SqlCommand($"SELECT po.PurchaseOrderId AS [Purchase Order ID], po.PODate AS [Purchase Order - Date], po.SplrCode AS [Supplier Code], po.DateReceived AS [Date Received], SUM(pod.IngrUnitPrice * pod.QtyOrdered) AS [Total Amount] FROM PurchaseOrder po, PurchaseOrderDetails pod WHERE po.PurchaseOrderID = pod.PurchaseOrderId AND po.PoDate BETWEEN '{dateFrom}' AND '{dateTo}' GROUP BY po.PurchaseOrderId, po.PoDate, po.SplrCode, po.DateReceived", conn);
+                    if(str != "")
+                    {
+                        cmd = new SqlCommand($"SELECT po.PurchaseOrderId AS [Purchase Order ID], po.PODate AS [Purchase Order - Date], po.SplrCode AS [Supplier Code], po.DateReceived AS [Date Received], SUM(pod.IngrUnitPrice * pod.QtyOrdered) AS [Total Amount] FROM PurchaseOrder po, PurchaseOrderDetails pod WHERE po.PurchaseOrderID = pod.PurchaseOrderId AND (po.PurchaseOrderId LIKE '%{str}%' OR po.PODate LIKE '%{str}%' OR po.SplrCode LIKE '%{str}%' OR po.DateReceived LIKE '%{str}%' OR ((pod.IngrUnitPrice * pod.QtyOrdered) LIKE '%{str}%')) AND po.PoDate BETWEEN '{dateFrom}' AND '{dateTo}' GROUP BY po.PurchaseOrderId, po.PoDate, po.SplrCode, po.DateReceived", conn);
+                    }
                 }
                 else
                 {
                     cmd = new SqlCommand($"SELECT po.PurchaseOrderId AS [Purchase Order ID], po.PODate AS [Purchase Order - Date], po.SplrCode AS [Supplier Code], po.DateReceived AS [Date Received], SUM(pod.IngrUnitPrice * pod.QtyOrdered) AS [Total Amount] FROM PurchaseOrder po, PurchaseOrderDetails pod WHERE po.PurchaseOrderID = pod.PurchaseOrderId GROUP BY po.PurchaseOrderId, po.PoDate, po.SplrCode, po.DateReceived", conn);
+                    if(str != "")
+                    {
+                        cmd = new SqlCommand($"SELECT po.PurchaseOrderId AS [Purchase Order ID], po.PODate AS [Purchase Order - Date], po.SplrCode AS [Supplier Code], po.DateReceived AS [Date Received], SUM(pod.IngrUnitPrice * pod.QtyOrdered) AS [Total Amount] FROM PurchaseOrder po, PurchaseOrderDetails pod WHERE po.PurchaseOrderID = pod.PurchaseOrderId AND (po.PurchaseOrderId LIKE '%{str}%' OR po.PODate LIKE '%{str}%' OR po.SplrCode LIKE '%{str}%' OR po.DateReceived LIKE '%{str}%' OR ((pod.IngrUnitPrice * pod.QtyOrdered) LIKE '%{str}%')) GROUP BY po.PurchaseOrderId, po.PoDate, po.SplrCode, po.DateReceived", conn);
+                    }
                 }
                 DataSet ds = new DataSet();
                 adapter.SelectCommand = cmd;
@@ -66,18 +87,26 @@ namespace Group7_FeelingBrew_Final_Project
                 gridViewData.DataBind();
                 conn.Close();
             }
-            if(select == 2)
+            if(select == 2) // When the user selected "Sales Orders"
             {
                 conn.Open();
                 if (txtDateFrom.Text != "" && txtDateTo.Text != "")
                 {
                     DateTime dateFrom = Convert.ToDateTime(txtDateFrom.Text);
                     DateTime dateTo = Convert.ToDateTime(txtDateTo.Text);
-                    cmd = new SqlCommand($"SELECT so.SoNumber AS [Sales Order - Number], so.SoDate AS [Sales Order - Date], so.DateReceived AS [Date Received], so.ClientCode AS [Client Code], SUM(sod.BeerUnitPricePerBottle * sod.QtySold) AS [Total Amount] FROM SalesOrders so, SalesOrdersDetails sod WHERE so.SoNumber = SalesOrderId AND so.SoDate BETWEEN '{dateFrom}' AND '{dateTo}' GROUP BY so.SoNumber, so.SoDate, so.DateReceived, so.ClientCode", conn);
+                    cmd = new SqlCommand($"SELECT so.SoNumber AS [Sales Order - Number], so.SoDate AS [Sales Order - Date], so.DateReceived AS [Date Received], so.ClientCode AS [Client Code], SUM(sod.BeerUnitPricePerBottle * sod.QtySold) AS [Total Amount] FROM SalesOrders so, SalesOrdersDetails sod WHERE so.SoNumber = sod.SalesOrderId AND so.SoDate BETWEEN '{dateFrom}' AND '{dateTo}' GROUP BY so.SoNumber, so.SoDate, so.DateReceived, so.ClientCode", conn);
+                    if(str != "")
+                    {
+                        cmd = new SqlCommand($"SELECT so.SoNumber AS [Sales Order - Number], so.SoDate AS [Sales Order - Date], so.DateReceived AS [Date Received], so.ClientCode AS [Client Code], SUM(sod.BeerUnitPricePerBottle * sod.QtySold) AS [Total Amount] FROM SalesOrders so, SalesOrdersDetails sod WHERE so.SoNumber = sod.SalesOrderId AND (so.SoNumber LIKE '%{str}%' OR so.SoDate LIKE '%{str}%' OR so.DateReceived LIKE '%{str}%' OR so.ClientCode LIKE '%{str}%' OR ((sod.BeerUnitPricePerBottle * sod.QtySold) LIKE '%{str}%')) AND so.SoDate BETWEEN '{dateFrom}' AND '{dateTo}' GROUP BY so.SoNumber, so.SoDate, so.DateReceived, so.ClientCode", conn);
+                    }
                 }
                 else
                 {
-                    cmd = new SqlCommand($"SELECT so.SoNumber AS [Sales Order - Number], so.SoDate AS [Sales Order - Date], so.DateReceived AS [Date Received], so.ClientCode AS [Client Code], SUM(sod.BeerUnitPricePerBottle * sod.QtySold) AS [Total Amount] FROM SalesOrders so, SalesOrdersDetails sod WHERE so.SoNumber = SalesOrderId GROUP BY so.SoNumber, so.SoDate, so.DateReceived, so.ClientCode", conn);
+                    cmd = new SqlCommand($"SELECT so.SoNumber AS [Sales Order - Number], so.SoDate AS [Sales Order - Date], so.DateReceived AS [Date Received], so.ClientCode AS [Client Code], SUM(sod.BeerUnitPricePerBottle * sod.QtySold) AS [Total Amount] FROM SalesOrders so, SalesOrdersDetails sod WHERE so.SoNumber = sod.SalesOrderId GROUP BY so.SoNumber, so.SoDate, so.DateReceived, so.ClientCode", conn);
+                    if(str != "")
+                    {
+                        cmd = new SqlCommand($"SELECT so.SoNumber AS [Sales Order - Number], so.SoDate AS [Sales Order - Date], so.DateReceived AS [Date Received], so.ClientCode AS [Client Code], SUM(sod.BeerUnitPricePerBottle * sod.QtySold) AS [Total Amount] FROM SalesOrders so, SalesOrdersDetails sod WHERE so.SoNumber = sod.SalesOrderId AND (so.SoNumber LIKE '%{str}%' OR ((sod.BeerUnitPricePerBottle * sod.QtySold) LIKE '%{str}%') OR so.SoDate LIKE '%{str}%' OR so.DateReceived LIKE '%{str}%' OR so.ClientCode LIKE '%{str}%') GROUP BY so.SoNumber, so.SoDate, so.DateReceived, so.ClientCode", conn);
+                    }
                 }
                 DataSet ds = new DataSet();
                 adapter.SelectCommand = cmd;
@@ -91,7 +120,7 @@ namespace Group7_FeelingBrew_Final_Project
         protected void gridViewData_PageIndexChanging1(object sender, GridViewPageEventArgs e)
         {
             gridViewData.PageIndex = e.NewPageIndex;
-            updateGridView();
+            updateGridView(Session["search"].ToString());
         }
 
         protected void btnTopBeers_Click(object sender, EventArgs e)
@@ -195,7 +224,9 @@ namespace Group7_FeelingBrew_Final_Project
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-           
+            string str = txtFilterPO.Text;
+            Session["search"] = str;
+            updateGridView(Session["search"].ToString());
         }
     }
 }

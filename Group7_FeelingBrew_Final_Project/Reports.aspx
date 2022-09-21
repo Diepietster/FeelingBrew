@@ -151,7 +151,7 @@
                                     <asp:Label ID="lblsubHeading2" runat="server" Font-Names="Consolas" Text="Graphs &amp; Charts:" Font-Bold="True" Font-Size="Large"></asp:Label>
                                 </td>
                     <td class="auto-style10">
-                        <asp:Chart ID="dataChart" runat="server" Width="518px" EnableViewState="True">
+                        <asp:Chart ID="dataChart" runat="server" Width="640px" EnableViewState="True" Height="459px">
                             <series>
                                 <asp:Series Name="Series1">
                                 </asp:Series>
