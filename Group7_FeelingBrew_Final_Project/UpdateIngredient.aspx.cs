@@ -112,7 +112,13 @@ namespace Group7_FeelingBrew_Final_Project
             str = ddListIngredient.SelectedItem.Text.Split(' ');
             string ingrIDString = str[1];
             int ingrID = int.Parse(ingrIDString);
-            cmd = new SqlCommand($"UPDATE Ingredients SET IngrDescription = '{Session["ingrDesc"]}', IngrLatestCost = '{Session["ingrCost"]}', QtyOnHand = '{Session["ingrQty"]}', IngrUnitTypeCode = '{Session["ingrUnitType"]}', SplrCode = '{Session["ingrSupplier"]}' WHERE IngredientCode = '{ingrID}'", conn);
+            str = ddListSupplier.SelectedItem.Text.Split(' ');
+            string splrIDString = str[1];
+            int splrID = int.Parse(splrIDString);
+            str = ddListIngrUnitType.SelectedItem.Text.Split(' ');
+            string unitTypeIDString = str[1];
+            int unitTypeID = int.Parse(unitTypeIDString);
+            cmd = new SqlCommand($"UPDATE Ingredients SET IngrDescription = '{Session["ingrDesc"]}', IngrLatestCost = '{Session["ingrCost"]}', QtyOnHand = '{Session["ingrQty"]}', IngrUnitTypeCode = '{unitTypeID}', SplrCode = '{splrID}' WHERE IngredientCode = '{ingrID}'", conn);
             adapter.UpdateCommand = cmd;
             cmd.ExecuteNonQuery();
             conn.Close();
