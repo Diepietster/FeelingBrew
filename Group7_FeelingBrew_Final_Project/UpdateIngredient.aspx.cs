@@ -156,10 +156,18 @@ namespace Group7_FeelingBrew_Final_Project
             string ingrIDString = str[1];
             int ingrID = int.Parse(ingrIDString);
 
+            int ingrMaximum = 0; // Maximum amount of rows in Ingredients Table
+            int splrMaximum = 0; // Maximum amount of suppliers in Suppliers Table
+
             conn.Open();
+            cmd = new SqlCommand($"SELECT COUNT(IngredientCode) FROM Ingredients", conn); // Count amount of rows in Ingredients Table
+            ingrMaximum = (int)cmd.ExecuteScalar(); // Assign Count to Integer using cmd.ExecuteScalar()
+            cmd = new SqlCommand($"SELECT COUNT(SplrCode) FROM Suppliers", conn); // Count amount of rows in Suppliers Table
+            splrMaximum = (int)cmd.ExecuteScalar(); // Assign Count to Integer using cmd.ExecuteScalar()
             cmd = new SqlCommand($"SELECT * FROM Ingredients WHERE IngredientCode = '{ingrID}'", conn);
             var dataReader = cmd.ExecuteReader();
             ingrList = Getlist<Ingredient>(dataReader);
+
 
             if (ingrList != null)
             {
@@ -169,7 +177,7 @@ namespace Group7_FeelingBrew_Final_Project
                 int splrToSelect = ingrList[0].SplrCode;
                 bool stop = false;
                 int counter = 0;
-                while(!stop && counter < 50) // See when sub-string of drop down matches ingrUnitTypeToSelect
+                while(!stop && counter < ingrMaximum) // See when sub-string of drop down matches ingrUnitTypeToSelect
                 {
                     String[] strUnitType;
                     ddListIngrUnitType.SelectedIndex = counter;
@@ -185,7 +193,7 @@ namespace Group7_FeelingBrew_Final_Project
                 }
                 stop = false;
                 counter = 0;
-                while (!stop && counter < 50) // See when sub-string of drop down matches ingrUnitTypeToSelect
+                while (!stop && counter < splrMaximum) // See when sub-string of drop down matches ingrUnitTypeToSelect
                 {
                     String[] strSplrType;
                     ddListSupplier.SelectedIndex = counter;
