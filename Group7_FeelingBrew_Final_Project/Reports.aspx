@@ -115,7 +115,7 @@
                 <tr>
                     <td class="auto-style30">&nbsp;</td>
                     <td class="auto-style11">
-                                    &nbsp;<asp:GridView ID="gridViewData" runat="server" Font-Names="Consolas" Height="127px" Width="535px" AllowPaging="True" OnPageIndexChanging="gridViewData_PageIndexChanging1">
+                                    &nbsp;<asp:GridView ID="gridViewData" runat="server" Font-Names="Consolas" Height="127px" Width="535px" AllowPaging="True" OnPageIndexChanging="gridViewData_PageIndexChanging1" AllowSorting="True" OnSorting="gridViewData_Sorting">
                                     </asp:GridView>
                                 </td>
                     <td>&nbsp;</td>

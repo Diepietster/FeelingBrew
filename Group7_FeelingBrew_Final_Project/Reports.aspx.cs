@@ -28,6 +28,37 @@ namespace Group7_FeelingBrew_Final_Project
             updateGridView("");
         }
 
+        private string GetSortDirection(string column)
+        {
+            string sortDirection = "DESC"; // Default direction
+            string sortExpression = (string)ViewState["SortExpression"];
+
+            if (sortExpression != null)
+            {
+                if (sortExpression == column)
+                {
+                    string lastDirection = (string)ViewState["SortDirection"];
+                    if ((lastDirection != null) && (lastDirection == "DESC"))
+                    {
+                        sortDirection = "ASC";
+                    }
+                }
+            }
+
+            ViewState["SortDirection"] = sortDirection;
+            ViewState["SortExpression"] = column;
+
+            return sortDirection;
+        }
+
+        protected void gridViewData_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            DataTable dt = ((DataSet)Session["myDataSet"]).Tables[0];
+            dt.DefaultView.Sort = e.SortExpression + " " + GetSortDirection(e.SortExpression);
+            gridViewData.DataSource = dt;
+            gridViewData.DataBind();
+        }
+
         private void updateGridView(string str) // str will be used to see if user typed in the filter box or not
         {
             int select = int.Parse(Session["select"].ToString()); // Assign saved session value to an Integer to See if "Top Beers" or "Purchase Orders" or "Sales Orders" has been selected
@@ -53,10 +84,12 @@ namespace Group7_FeelingBrew_Final_Project
                     }
                 }
                 DataSet ds = new DataSet();
+                Session["myDataSet"] = ds; // Store DataSet for sorting columns
                 adapter.SelectCommand = cmd;
                 adapter.Fill(ds);
                 gridViewData.DataSource = ds;
                 gridViewData.DataBind();
+
                 conn.Close();
             }
             if(select == 1) // When the user selected "Purchase Orders"
@@ -81,6 +114,7 @@ namespace Group7_FeelingBrew_Final_Project
                     }
                 }
                 DataSet ds = new DataSet();
+                Session["myDataSet"] = ds; // Store DataSet for sorting columns
                 adapter.SelectCommand = cmd;
                 adapter.Fill(ds);
                 gridViewData.DataSource = ds;
@@ -109,6 +143,7 @@ namespace Group7_FeelingBrew_Final_Project
                     }
                 }
                 DataSet ds = new DataSet();
+                Session["myDataSet"] = ds; // Store DataSet for sorting columns
                 adapter.SelectCommand = cmd;
                 adapter.Fill(ds);
                 gridViewData.DataSource = ds;
