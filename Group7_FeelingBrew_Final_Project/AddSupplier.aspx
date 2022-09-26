@@ -122,7 +122,7 @@
                                     <asp:TextBox ID="txtSStreetNo" runat="server" Width="230px" Font-Names="Consolas"></asp:TextBox>
                                 </td>
                                 <td class="auto-style2">
-                                    <asp:RangeValidator ID="rangeValStreetNo" runat="server" ControlToValidate="txtSStreetNo" ErrorMessage="Please enter valid street number." Font-Names="Consolas" ForeColor="Maroon" MaximumValue="9999999" MinimumValue="0" Type="Integer"></asp:RangeValidator>
+                                    <asp:RequiredFieldValidator ID="requiredFieldStreetname1" runat="server" BorderStyle="None" ControlToValidate="txtSStreetNo" ErrorMessage="Please enter a street number." Font-Names="Consolas" ForeColor="Maroon"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -190,10 +190,7 @@
                             a{
                              text-decoration: none;
                              }
-                            .auto-style16 {
-                            width: 813px;
-                        }
-                        .auto-style17 {
+                            .auto-style17 {
                             width: 813px;
                             text-align: right;
                         }
@@ -206,13 +203,6 @@
                         }
                         .auto-style20 {
                             width: 100%;
-                        }
-                            .auto-style21 {
-                            width: 813px;
-                            height: 23px;
-                        }
-                        .auto-style22 {
-                            height: 23px;
                         }
                             </style>
                 </td>

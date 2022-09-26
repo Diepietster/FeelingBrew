@@ -41,8 +41,16 @@
             text-align: right;
             width: 398px;
         }
-        .auto-style28 {
-            width: 398px;
+        .auto-style22 {
+            width: 361px;
+            height: 25px;
+        }
+        .auto-style23 {
+            width: 459px;
+            height: 25px;
+        }
+        .auto-style24 {
+            height: 25px;
         }
     </style>
 </head>
@@ -88,13 +96,15 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <table style="width:100%;">
                             <tr>
-                                <td class="auto-style20">
+                                <td class="auto-style22">
                                     <asp:Label ID="lblClientFilter" runat="server" Font-Names="Consolas" Text="Filter clients according to any field:"></asp:Label>
                                 </td>
-                                <td class="auto-style21">
-                                    <asp:TextBox ID="txtFilterClients" runat="server" Width="230px" Font-Names="Consolas" OnTextChanged="txtFilterClients_TextChanged"></asp:TextBox>
+                                <td class="auto-style23">
+                                    <asp:TextBox ID="txtFilterClients" runat="server" Width="230px" Font-Names="Consolas" ></asp:TextBox>
+                                &nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btnFilter" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="30px" Text="Filter" Width="141px" OnClick="btnFilter_Click" CausesValidation="False"  />
                                 </td>
-                                <td>&nbsp;</td>
+                                <td class="auto-style24"></td>
                             </tr>
                             <tr>
                                 <td class="auto-style20">
@@ -104,6 +114,8 @@
                                     <asp:DropDownList ID="ddListClients" runat="server" Font-Names="Consolas">
                                         <asp:ListItem>Please Select</asp:ListItem>
                                     </asp:DropDownList>
+                                &nbsp;&nbsp;
+                                    <asp:RequiredFieldValidator ID="requiredFieldName" runat="server" BorderStyle="None" ControlToValidate="ddListClients" ErrorMessage="Please select a client to delete." Font-Names="Consolas" ForeColor="Maroon"></asp:RequiredFieldValidator>
                                 </td>
                                 <td>&nbsp;</td>
                             </tr>
