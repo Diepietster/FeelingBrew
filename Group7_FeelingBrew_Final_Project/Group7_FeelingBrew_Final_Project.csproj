@@ -155,6 +155,7 @@
     <Compile Include="Entities\Province.cs" />
     <Compile Include="Entities\Supplier.cs" />
     <Compile Include="Helper Methods\HelperMethods.cs" />
+    <Compile Include="Email Class\Email.cs" />
     <Compile Include="HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
