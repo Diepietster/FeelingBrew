@@ -145,7 +145,7 @@
                                     <asp:Label ID="lblProvince" runat="server" Font-Names="Consolas" Text="Province:"></asp:Label>
                                 </td>
                                 <td class="auto-style5">
-                                    <asp:DropDownList ID="ddListProvince" runat="server" Font-Names="Consolas">
+                                    <asp:DropDownList ID="ddListProvince" runat="server" Font-Names="Consolas" OnSelectedIndexChanged="ddListProvince_SelectedIndexChanged">
                                         <asp:ListItem>Please Select</asp:ListItem>
                                         <asp:ListItem>Gauteng</asp:ListItem>
                                         <asp:ListItem>North West</asp:ListItem>
