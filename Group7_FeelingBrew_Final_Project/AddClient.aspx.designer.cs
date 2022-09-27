@@ -96,42 +96,6 @@ namespace Group7_FeelingBrew_Final_Project
         protected global::System.Web.UI.WebControls.TextBox txtCSurname;
 
         /// <summary>
-        /// requiredFieldSurname control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredFieldSurname;
-
-        /// <summary>
-        /// lblCompany control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCompany;
-
-        /// <summary>
-        /// lblOptional control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOptional;
-
-        /// <summary>
-        /// txtCompanyName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCompanyName;
-
-        /// <summary>
         /// lblCellNo control.
         /// </summary>
         /// <remarks>
@@ -222,13 +186,13 @@ namespace Group7_FeelingBrew_Final_Project
         protected global::System.Web.UI.WebControls.TextBox txtCStreetNo;
 
         /// <summary>
-        /// rangeValStreetNo control.
+        /// requiredFieldProvince0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rangeValStreetNo;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredFieldProvince0;
 
         /// <summary>
         /// lblStreetname control.
