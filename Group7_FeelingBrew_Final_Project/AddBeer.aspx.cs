@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -24,6 +25,10 @@ namespace Group7_FeelingBrew_Final_Project
             }
         }
 
+        private SqlConnection conn = new SqlConnection(@"Data Source=feelingbrewwebapp.database.windows.net;Database=FeelingBrewWebDb;User ID=admin-sql;Password=5+&8ePF43M5%J$1,YWT&KetA=-a_O6y5");
+        private SqlCommand cmd;
+        private SqlDataAdapter adapter = new SqlDataAdapter();
+
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("HomePage.aspx");
@@ -36,6 +41,11 @@ namespace Group7_FeelingBrew_Final_Project
             Session["beerPrice"] = txtBeerPrice.Text;
             Session["beerSize"] = txtBottleSize.Text;
             Session["beerQty"] = txtQtyOnHand.Text;
+            conn.Open();
+            cmd = new SqlCommand($"INSERT INTO Beers(BeerName, BeerDescription, BeerUnitPricePerBottle, BeerBottleSize, BeerQtyOnHand) VALUES('{Session["beerName"]}','{Session["beerDesc"]}','{Session["beerPrice"]}','{Session["beerSize"]}','{Session["beerQty"]}')", conn);
+            adapter.InsertCommand = cmd;
+            cmd.ExecuteNonQuery();
+            conn.Close();
             lblMessage.Text = "Beer added!";
         }
     }
