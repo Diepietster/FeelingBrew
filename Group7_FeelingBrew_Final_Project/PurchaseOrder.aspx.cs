@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using System.Collections;
 using System.Data.Common;
 using System.Data.SqlTypes;
+using Group7_FeelingBrew_Final_Project.Email_Class;
 
 namespace Group7_FeelingBrew_Final_Project
 {
@@ -69,8 +70,14 @@ namespace Group7_FeelingBrew_Final_Project
                      apdapter_0.UpdateCommand.ExecuteNonQuery();
                      sqlConn_0.Close();
 
-
-
+                    
+                    //Email
+                    string message = "New Purchase Order has been finalised for :/n" + "Ingredient: " + ddListIngr.Text + "/n" + "Quantity Ordered: " + txtQty.Text + "/n" + 
+                        "Unit Price: R" + (string)Session["IngrLatestCost"] + "/n" + "Total excl VAT: R" + lblTotalExclVAT.Text + "/n" + "VAT: R" + lblVAT.Text + "/n" +
+                        "Total incl VAT: R" + lblInclVAT.Text + "/n" + "PODate: " + (string)Session["date"];
+                    Email email = new Email();
+                    email.SendEmail(message, "Purchase Order finalised!");
+                    
                     lblMessage.Text = "Order placed!";
                 }
                  catch (SqlException ex) //error message SQL

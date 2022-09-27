@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Group7_FeelingBrew_Final_Project.Email_Class;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -67,6 +68,13 @@ namespace Group7_FeelingBrew_Final_Project
                     apdapter_0.UpdateCommand.ExecuteNonQuery();
                     sqlConn_0.Close();
 
+                    //Email
+                    string message = "New Sales Order has been finalised for :/n" + "Beer: " + ddListBeer.Text + "/n" + "Quantity Ordered: " + txtQty.Text + "/n" +
+                        "Unit Price: R" + (string)Session["BeerUnitPricePerBottle"] + "/n" + "Total excl VAT: R" + lblTotalExclVAT.Text + "/n" + "VAT: R" + lblVAT.Text + "/n" +
+                        "Total incl VAT: R" + lblInclVAT.Text + "/n" + "SODate: " + (string)Session["date"];
+                    Email email = new Email();
+                    email.SendEmail(message, "Sales Order finalised!");
+
                     lblMessage.Text = "Order placed!";
                 }
                 catch (SqlException ex) //error message SQL
@@ -119,7 +127,7 @@ namespace Group7_FeelingBrew_Final_Project
             DateTime nextMonth = new DateTime(DateTime.Today.AddDays(30).Year, DateTime.Today.AddDays(30).Month, DateTime.Today.AddDays(30).Day);
             Session["date"] = todayDate;
             Session["next_date"] = nextMonth;
-            Session["Client_sales_order"] = //Insert Client login ID - (int)
+            //Session["Client_sales_order"] = //Insert Client login ID - (int)
             insertData();
 
 
