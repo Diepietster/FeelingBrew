@@ -112,6 +112,8 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="txtFilterSuppliers" runat="server" Width="230px" Font-Names="Consolas" CssClass="auto-style25"></asp:TextBox>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btnFilter" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="30px" Text="Filter" Width="141px"  CausesValidation="False" OnClick="btnFilter_Click"  />
                                 </td>
                                 <td>&nbsp;</td>
                             </tr>
@@ -120,7 +122,7 @@
                                     <asp:Label ID="lblSupplierEdit" runat="server" Font-Names="Consolas" Text="Select supplier to edit:"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:DropDownList ID="ddListSupplier" runat="server" Font-Names="Consolas">
+                                    <asp:DropDownList ID="ddListSupplier" runat="server" Font-Names="Consolas" AutoPostBack="True" OnSelectedIndexChanged="ddListSupplier_SelectedIndexChanged">
                                         <asp:ListItem>Please Select</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
@@ -192,7 +194,7 @@
                                     <asp:TextBox ID="txtSStreetNo" runat="server" Width="230px" Font-Names="Consolas"></asp:TextBox>
                                 </td>
                                 <td class="auto-style2">
-                                    <asp:RangeValidator ID="rangeValStreetNo" runat="server" ControlToValidate="txtSStreetNo" ErrorMessage="Please enter valid street number." Font-Names="Consolas" ForeColor="Maroon" MaximumValue="9999999" MinimumValue="0" Type="Integer"></asp:RangeValidator>
+                                    <asp:RequiredFieldValidator ID="requiredFieldProvince0" runat="server" ControlToValidate="txtSStreetNo" ErrorMessage="Please enter street number." Font-Names="Consolas" ForeColor="Maroon" InitialValue="Please Select"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -310,7 +312,7 @@
             </tr>
             </table>
         <p>
-            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Retrun to home page</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Return to home page</asp:HyperLink>
         </p>
     </form>
 </body>
