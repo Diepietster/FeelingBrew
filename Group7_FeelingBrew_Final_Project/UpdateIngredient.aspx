@@ -76,6 +76,9 @@
             text-align: right;
             width: 408px;
         }
+        .auto-style28 {
+            width: 408px;
+        }
         .auto-style29 {
             width: 813px;
             text-align: left;
@@ -83,17 +86,6 @@
     </style>
 </head>
 <body>
-    <div id="google_translate_element"></div>  
-       <script type="text/javascript">  
-                                   function googleTranslateElementInit() {  
-                                   new google.translate.TranslateElement  
-                                   ({ pageLanguage: 'en',   
-                                   layout: google.translate.TranslateElement.InlineLayout.SIMPLE },   
-                                   'google_translate_element');  
-                               }  
-       </script><script type="text/javascript"   
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">  
-    </script> 
     <form id="form1" runat="server">
         <div>
             <table style="width:100%;">
@@ -145,8 +137,6 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="txtFilterIngredient" runat="server" Width="230px" Font-Names="Consolas" CssClass="auto-style25"></asp:TextBox>
-                                &nbsp;
-                    <asp:Button ID="btnSearch" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="30px" OnClick="btnSearch_Click" Text="Search" Width="141px" CausesValidation="False" />
                                 </td>
                                 <td>&nbsp;</td>
                             </tr>
@@ -155,7 +145,7 @@
                                     <asp:Label ID="lblIngredientEdit" runat="server" Font-Names="Consolas" Text="Select ingredient to edit:"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:DropDownList ID="ddListIngredient" runat="server" Font-Names="Consolas" AutoPostBack="True" OnSelectedIndexChanged="ddListIngredient_SelectedIndexChanged">
+                                    <asp:DropDownList ID="ddListIngredient" runat="server" Font-Names="Consolas">
                                         <asp:ListItem>Please Select</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
@@ -268,7 +258,7 @@
             </tr>
             </table>
         <p>
-            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Retrun to home page</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Return to home page</asp:HyperLink>
         </p>
     </form>
 </body>

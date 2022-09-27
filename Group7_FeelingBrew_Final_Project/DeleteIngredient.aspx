@@ -41,25 +41,13 @@
             text-align: right;
             width: 398px;
         }
-        </style>
+        .auto-style28 {
+            width: 398px;
+        }
+    </style>
 </head>
 <body>
-    <form id="form1" runat="server"> 
-        <div>  
-   <div id="google_translate_element"></div>  
-   <script type="text/javascript">  
-       function googleTranslateElementInit() {
-           new google.translate.TranslateElement
-               ({
-                   pageLanguage: 'en',
-                   layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-               },
-                   'google_translate_element');
-       }
-   </script><script type="text/javascript"   
-src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">  
-</script>  
-    </div> 
+    <form id="form1" runat="server">
         <div>
             <table style="width:100%;">
                 <tr>
@@ -110,8 +98,6 @@ src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit
                                 </td>
                                 <td>
                                     <asp:TextBox ID="txtFilterIngredient" runat="server" Width="230px" Font-Names="Consolas" CssClass="auto-style25"></asp:TextBox>
-                                &nbsp;
-                    <asp:Button ID="btnSearch" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="30px" OnClick="btnSearch_Click" Text="Search" Width="141px" CausesValidation="False" />
                                 </td>
                                 <td>&nbsp;</td>
                             </tr>

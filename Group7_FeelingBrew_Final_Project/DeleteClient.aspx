@@ -47,17 +47,6 @@
     </style>
 </head>
 <body>
-    <div id="google_translate_element"></div>  
-       <script type="text/javascript">  
-                                   function googleTranslateElementInit() {  
-                                   new google.translate.TranslateElement  
-                                   ({ pageLanguage: 'en',   
-                                   layout: google.translate.TranslateElement.InlineLayout.SIMPLE },   
-                                   'google_translate_element');  
-                               }  
-       </script><script type="text/javascript"   
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">  
-    </script> 
     <form id="form1" runat="server">
         <div>
             <table style="width:100%;">
@@ -103,7 +92,7 @@
                                     <asp:Label ID="lblClientFilter" runat="server" Font-Names="Consolas" Text="Filter clients according to any field:"></asp:Label>
                                 </td>
                                 <td class="auto-style21">
-                                    <asp:TextBox ID="txtFilterClients" runat="server" Width="230px" Font-Names="Consolas"></asp:TextBox>
+                                    <asp:TextBox ID="txtFilterClients" runat="server" Width="230px" Font-Names="Consolas" OnTextChanged="txtFilterClients_TextChanged"></asp:TextBox>
                                 </td>
                                 <td>&nbsp;</td>
                             </tr>
@@ -147,7 +136,7 @@
             </tr>
             </table>
         <p>
-            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Retrun to home page</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Return to home page</asp:HyperLink>
         </p>
     </form>
 </body>

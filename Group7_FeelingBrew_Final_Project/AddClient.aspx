@@ -61,19 +61,7 @@
         }
     </style>
 </head>
-
 <body>
-    <div id="google_translate_element"></div>  
-       <script type="text/javascript">  
-                                   function googleTranslateElementInit() {  
-                                   new google.translate.TranslateElement  
-                                   ({ pageLanguage: 'en',   
-                                   layout: google.translate.TranslateElement.InlineLayout.SIMPLE },   
-                                   'google_translate_element');  
-                               }  
-       </script><script type="text/javascript"   
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">  
-    </script> 
     <form id="form1" runat="server">
         <div>
             <table style="width:100%;">
@@ -142,7 +130,7 @@
                                 <td class="auto-style14">
                                     <asp:RequiredFieldValidator ID="requiredFieldCellNo" runat="server" ControlToValidate="txtCSurname" ErrorMessage="Please enter a client cellphone number." Font-Names="Consolas" ForeColor="Maroon"></asp:RequiredFieldValidator>
                                     <br />
-                                    <asp:RegularExpressionValidator ID="regExpresionCellNo" runat="server" ControlToValidate="txtCCellphone" ErrorMessage="Please enter valid cellphone number." Font-Names="Consolas" ForeColor="Maroon" ValidationExpression="^([\(]{1}[0-9]{3}[\)]{1}[\.| |\-]{0,1}|^[0-9]{3}[\.|\-| ]?)?[0-9]{3}(\.|\-| )?[0-9]{4}$"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator ID="regExpresionCellNo" runat="server" ControlToValidate="txtCCellphone" ErrorMessage="Please enter valid cellphone number (e.g., 0999999999)." Font-Names="Consolas" ForeColor="Maroon" ValidationExpression="^([\(]{1}[0-9]{3}[\)]{1}[\.| |\-]{0,1}|^[0-9]{3}[\.|\-| ]?)?[0-9]{3}(\.|\-| )?[0-9]{4}$"></asp:RegularExpressionValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -157,7 +145,7 @@
                                     <asp:Label ID="lblProvince" runat="server" Font-Names="Consolas" Text="Province:"></asp:Label>
                                 </td>
                                 <td class="auto-style5">
-                                    <asp:DropDownList ID="ddListProvince" runat="server" Font-Names="Consolas" OnSelectedIndexChanged="ddListProvince_SelectedIndexChanged">
+                                    <asp:DropDownList ID="ddListProvince" runat="server" Font-Names="Consolas">
                                         <asp:ListItem>Please Select</asp:ListItem>
                                         <asp:ListItem>Gauteng</asp:ListItem>
                                         <asp:ListItem>North West</asp:ListItem>
@@ -248,7 +236,7 @@
             </tr>
             </table>
         <p>
-            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Retrun to home page</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Return to home page</asp:HyperLink>
         </p>
     </form>
 </body>

@@ -59,17 +59,6 @@
         </style>
 </head>
 <body>
-    <div id="google_translate_element"></div>  
-       <script type="text/javascript">  
-                                   function googleTranslateElementInit() {  
-                                   new google.translate.TranslateElement  
-                                   ({ pageLanguage: 'en',   
-                                   layout: google.translate.TranslateElement.InlineLayout.SIMPLE },   
-                                   'google_translate_element');  
-                               }  
-       </script><script type="text/javascript"   
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">  
-    </script> 
     <form id="form1" runat="server">
         <div>
         <div>
@@ -321,7 +310,7 @@
             </tr>
             </table>
         <p>
-            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Retrun to home page</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Return to home page</asp:HyperLink>
         </p>
     </form>
 </body>

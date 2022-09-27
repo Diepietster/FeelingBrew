@@ -36,17 +36,6 @@
     </style>
 </head>
 <body>
-    <div id="google_translate_element"></div>  
-       <script type="text/javascript">  
-                                   function googleTranslateElementInit() {  
-                                   new google.translate.TranslateElement  
-                                   ({ pageLanguage: 'en',   
-                                   layout: google.translate.TranslateElement.InlineLayout.SIMPLE },   
-                                   'google_translate_element');  
-                               }  
-       </script><script type="text/javascript"   
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">  
-    </script> 
     <form id="form1" runat="server">
         <div>
             <table style="width:100%;">
@@ -78,7 +67,7 @@
                                     <asp:Label ID="lblPassword" runat="server" Font-Names="Consolas" Text="Enter Password:"></asp:Label>
                                 </td>
                                 <td class="auto-style7">
-                                    <asp:TextBox ID="txtPassword" runat="server" Width="230px" Font-Names="Consolas"></asp:TextBox>
+                                    <asp:TextBox ID="txtPassword" runat="server" Width="230px" Font-Names="Consolas" TextMode="Password"></asp:TextBox>
                                 </td>
                                 <td class="auto-style3">
                                     <asp:RequiredFieldValidator ID="requiredFieldUsername0" runat="server" ControlToValidate="txtPassword" ErrorMessage="Please enter a password." Font-Names="Consolas" ForeColor="Maroon"></asp:RequiredFieldValidator>

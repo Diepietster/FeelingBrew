@@ -1,7 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Reports.aspx.cs" Inherits="Group7_FeelingBrew_Final_Project.Reports" %>
 
-<%@ Register assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" namespace="System.Web.UI.DataVisualization.Charting" tagprefix="asp" %>
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -60,19 +58,6 @@
         </style>
 </head>
 <body>
-    <div id="google_translate_element"></div>  
-       <script type="text/javascript">  
-           function googleTranslateElementInit() {
-               new google.translate.TranslateElement
-                   ({
-                       pageLanguage: 'en',
-                       layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-                   },
-                       'google_translate_element');
-           }
-       </script><script type="text/javascript"   
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">  
-    </script> 
     <form id="form1" runat="server">
             <table style="width:100%;">
                 <tr>
@@ -89,19 +74,6 @@
                 </tr>
             </table>
         <div>
-            <div>  
-   <div id="google_translate_element"></div>  
-   <script type="text/javascript">  
-                               function googleTranslateElementInit() {  
-                               new google.translate.TranslateElement  
-                               ({ pageLanguage: 'en',   
-                               layout: google.translate.TranslateElement.InlineLayout.SIMPLE },   
-                               'google_translate_element');  
-                           }  
-   </script><script type="text/javascript"   
-src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">  
-</script>  
-    </div> 
         </div>
             <table style="width:100%;">
                 <tr>
@@ -109,24 +81,17 @@ src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit
                                     <asp:Label ID="lblsubHeading1" runat="server" Font-Names="Consolas" Text="Select report to display:" Font-Bold="True" Font-Size="Large"></asp:Label>
                                 </td>
                     <td class="auto-style27">
-                        <asp:Label ID="lblDateFrom" runat="server" Text="From Date:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="lblDateTo" runat="server" Text="To Date:"></asp:Label>
-                        <br />
-                        <asp:TextBox ID="txtDateFrom" runat="server"></asp:TextBox>
-&nbsp;&nbsp;
-                        <asp:TextBox ID="txtDateTo" runat="server"></asp:TextBox>
-                    </td>
+                        &nbsp;</td>
                     <td class="auto-style28">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style29">&nbsp;</td>
                     <td class="auto-style27">
-                    <asp:Button ID="btnTopBeers" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="39px" Text="Top Beers" Width="150px" OnClick="btnTopBeers_Click"  />
+                    <asp:Button ID="btnTopBeers" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="39px" Text="Top Beers" Width="150px"  />
                                 &nbsp;&nbsp;
-                    <asp:Button ID="btnPO" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="39px" Text="Purchase Order" Width="150px" OnClick="btnPO_Click"  />
+                    <asp:Button ID="btnPO" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="39px" Text="Purchase Order" Width="150px"  />
                                 &nbsp;&nbsp;
-                    <asp:Button ID="btnSO" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="39px" Text="Sales Order" Width="150px" OnClick="btnSO_Click"  />
+                    <asp:Button ID="btnSO" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="39px" Text="Sales Order" Width="150px"  />
                                 <br />
                                 </td>
                     <td class="auto-style28">&nbsp;</td>
@@ -141,7 +106,7 @@ src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit
                 <tr>
                     <td class="auto-style30">&nbsp;</td>
                     <td class="auto-style11">
-                                    &nbsp;<asp:GridView ID="gridViewData" runat="server" Font-Names="Consolas" Height="127px" Width="535px" AllowPaging="True" OnPageIndexChanging="gridViewData_PageIndexChanging1" AllowSorting="True" OnSorting="gridViewData_Sorting">
+                                    &nbsp;<asp:GridView ID="gridViewData" runat="server" Font-Names="Consolas" Height="127px" Width="389px">
                                     </asp:GridView>
                                 </td>
                     <td>&nbsp;</td>
@@ -157,9 +122,7 @@ src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit
                                 <td class="auto-style31">
                                     <asp:TextBox ID="txtFilterPO" runat="server" Width="230px" Font-Names="Consolas" CssClass="auto-style25"></asp:TextBox>
                                 </td>
-                                <td>
-                    <asp:Button ID="btnSearch" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="39px" Text="Search" Width="150px" OnClick="btnSearch_Click"  />
-                                </td>
+                                <td>&nbsp;</td>
                             </tr>
                             <tr>
                                 <td class="auto-style26">
@@ -169,28 +132,6 @@ src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit
                                 <td>&nbsp;</td>
                             </tr>
                             </table>
-                    </td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style30">
-                                    <asp:Label ID="lblsubHeading2" runat="server" Font-Names="Consolas" Text="Graphs &amp; Charts:" Font-Bold="True" Font-Size="Large"></asp:Label>
-                                </td>
-                    <td class="auto-style10">
-                        <asp:Chart ID="dataChart" runat="server" Width="640px" EnableViewState="True" Height="459px">
-                            <series>
-                                <asp:Series Name="Series1">
-                                </asp:Series>
-                            </series>
-                            <chartareas>
-                                <asp:ChartArea Name="ChartArea1">
-                                </asp:ChartArea>
-                            </chartareas>
-                            <Titles>
-                                <asp:Title Name="Title1">
-                                </asp:Title>
-                            </Titles>
-                        </asp:Chart>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
