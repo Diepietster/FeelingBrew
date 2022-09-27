@@ -106,19 +106,7 @@
                                     <asp:TextBox ID="txtCSurname" runat="server" Width="230px" Font-Names="Consolas"></asp:TextBox>
                                 </td>
                                 <td class="auto-style9">
-                                    <asp:RequiredFieldValidator ID="requiredFieldSurname" runat="server" ControlToValidate="txtCSurname" ErrorMessage="Please enter a client surname." Font-Names="Consolas" ForeColor="Maroon"></asp:RequiredFieldValidator>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style4">
-                                    <asp:Label ID="lblCompany" runat="server" Font-Names="Consolas" Text="Company name:"></asp:Label>
-                                &nbsp;
-                                    <asp:Label ID="lblOptional" runat="server" Font-Names="Consolas" Text="(*optional)" Font-Size="Smaller"></asp:Label>
-                                </td>
-                                <td class="auto-style6">
-                                    <asp:TextBox ID="txtCompanyName" runat="server" Width="230px" Font-Names="Consolas"></asp:TextBox>
-                                </td>
-                                <td class="auto-style14">&nbsp;</td>
+                                    &nbsp;</td>
                             </tr>
                             <tr>
                                 <td class="auto-style4">
@@ -145,7 +133,7 @@
                                     <asp:Label ID="lblProvince" runat="server" Font-Names="Consolas" Text="Province:"></asp:Label>
                                 </td>
                                 <td class="auto-style5">
-                                    <asp:DropDownList ID="ddListProvince" runat="server" Font-Names="Consolas">
+                                    <asp:DropDownList ID="ddListProvince" runat="server" Font-Names="Consolas" OnSelectedIndexChanged="ddListProvince_SelectedIndexChanged">
                                         <asp:ListItem>Please Select</asp:ListItem>
                                         <asp:ListItem>Gauteng</asp:ListItem>
                                         <asp:ListItem>North West</asp:ListItem>
@@ -163,7 +151,7 @@
                                     <asp:TextBox ID="txtCStreetNo" runat="server" Width="230px" Font-Names="Consolas"></asp:TextBox>
                                 </td>
                                 <td class="auto-style2">
-                                    <asp:RangeValidator ID="rangeValStreetNo" runat="server" ControlToValidate="txtCStreetNo" ErrorMessage="Please enter valid street number." Font-Names="Consolas" ForeColor="Maroon" MaximumValue="9999999" MinimumValue="0" Type="Integer"></asp:RangeValidator>
+                                    <asp:RequiredFieldValidator ID="requiredFieldProvince0" runat="server" ControlToValidate="ddListProvince" ErrorMessage="Please enter a street number." Font-Names="Consolas" ForeColor="Maroon" InitialValue="Please Select"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>

@@ -44,6 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -121,6 +122,7 @@
     <Compile Include="AddSupplier.aspx.designer.cs">
       <DependentUpon>AddSupplier.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Beer.cs" />
     <Compile Include="DeleteBeer.aspx.cs">
       <DependentUpon>DeleteBeer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -149,6 +151,12 @@
     <Compile Include="DeleteSupplier.aspx.designer.cs">
       <DependentUpon>DeleteSupplier.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Entities\City.cs" />
+    <Compile Include="Entities\Client.cs" />
+    <Compile Include="Entities\LoginUser.cs" />
+    <Compile Include="Entities\Province.cs" />
+    <Compile Include="Entities\Supplier.cs" />
+    <Compile Include="Helper Methods\HelperMethods.cs" />
     <Compile Include="Email Class\Email.cs" />
     <Compile Include="HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
@@ -164,6 +172,7 @@
     <Compile Include="HomePageClient.aspx.designer.cs">
       <DependentUpon>HomePageClient.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Ingredient.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

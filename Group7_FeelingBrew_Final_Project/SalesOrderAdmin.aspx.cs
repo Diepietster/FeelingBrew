@@ -69,6 +69,7 @@ namespace Group7_FeelingBrew_Final_Project
                     apdapter_0.UpdateCommand.ExecuteNonQuery();
                     sqlConn_0.Close();
 
+<<<<<<< HEAD
                     //Email
                     string message = "New Sales Order has been finalised for :/n" + "Beer: " + ddListBeer.Text + "/n" + "Quantity Ordered: " + txtQty.Text + "/n" +
                         "Unit Price: R" + (string)Session["BeerUnitPricePerBottle"] + "/n" + "Total excl VAT: R" + lblTotalExclVAT.Text + "/n" + "VAT: R" + lblVAT.Text + "/n" +
@@ -76,6 +77,8 @@ namespace Group7_FeelingBrew_Final_Project
                     Email email = new Email();
                     email.SendEmail(message, "Sales Order finalised!");
 
+=======
+>>>>>>> 11c7fc89c8f61208d0b12d43bb8d5756c53d74da
                     lblMessage.Text = "Order placed!";
                 }
                 catch (SqlException ex) //error message SQL

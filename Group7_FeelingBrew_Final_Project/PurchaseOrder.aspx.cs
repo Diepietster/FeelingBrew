@@ -9,7 +9,10 @@ using System.Web.UI.WebControls;
 using System.Collections;
 using System.Data.Common;
 using System.Data.SqlTypes;
+<<<<<<< HEAD
 using Group7_FeelingBrew_Final_Project.Email_Class;
+=======
+>>>>>>> 11c7fc89c8f61208d0b12d43bb8d5756c53d74da
 
 namespace Group7_FeelingBrew_Final_Project
 {
@@ -70,6 +73,7 @@ namespace Group7_FeelingBrew_Final_Project
                      apdapter_0.UpdateCommand.ExecuteNonQuery();
                      sqlConn_0.Close();
 
+<<<<<<< HEAD
                     
                     //Email
                     string message = "New Purchase Order has been finalised for :/n" + "Ingredient: " + ddListIngr.Text + "/n" + "Quantity Ordered: " + txtQty.Text + "/n" + 
@@ -78,6 +82,10 @@ namespace Group7_FeelingBrew_Final_Project
                     Email email = new Email();
                     email.SendEmail(message, "Purchase Order finalised!");
                     
+=======
+
+
+>>>>>>> 11c7fc89c8f61208d0b12d43bb8d5756c53d74da
                     lblMessage.Text = "Order placed!";
                 }
                  catch (SqlException ex) //error message SQL
