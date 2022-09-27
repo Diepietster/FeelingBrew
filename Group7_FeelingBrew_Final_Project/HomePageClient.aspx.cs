@@ -23,5 +23,10 @@ namespace Group7_FeelingBrew_Final_Project
         {
             Response.Redirect("ViewSOClient.aspx");
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ClientHelp.pdf");
+        }
     }
 }

@@ -41,20 +41,23 @@
             text-align: right;
             width: 398px;
         }
-        .auto-style22 {
-            width: 361px;
-            height: 25px;
-        }
-        .auto-style23 {
-            width: 459px;
-            height: 25px;
-        }
-        .auto-style24 {
-            height: 25px;
+        .auto-style28 {
+            width: 398px;
         }
     </style>
 </head>
 <body>
+    <div id="google_translate_element"></div>  
+       <script type="text/javascript">  
+                                   function googleTranslateElementInit() {  
+                                   new google.translate.TranslateElement  
+                                   ({ pageLanguage: 'en',   
+                                   layout: google.translate.TranslateElement.InlineLayout.SIMPLE },   
+                                   'google_translate_element');  
+                               }  
+       </script><script type="text/javascript"   
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">  
+    </script> 
     <form id="form1" runat="server">
         <div>
             <table style="width:100%;">
@@ -96,15 +99,13 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <table style="width:100%;">
                             <tr>
-                                <td class="auto-style22">
+                                <td class="auto-style20">
                                     <asp:Label ID="lblClientFilter" runat="server" Font-Names="Consolas" Text="Filter clients according to any field:"></asp:Label>
                                 </td>
-                                <td class="auto-style23">
-                                    <asp:TextBox ID="txtFilterClients" runat="server" Width="230px" Font-Names="Consolas" ></asp:TextBox>
-                                &nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnFilter" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="30px" Text="Filter" Width="141px" OnClick="btnFilter_Click" CausesValidation="False"  />
+                                <td class="auto-style21">
+                                    <asp:TextBox ID="txtFilterClients" runat="server" Width="230px" Font-Names="Consolas"></asp:TextBox>
                                 </td>
-                                <td class="auto-style24"></td>
+                                <td>&nbsp;</td>
                             </tr>
                             <tr>
                                 <td class="auto-style20">
@@ -114,8 +115,6 @@
                                     <asp:DropDownList ID="ddListClients" runat="server" Font-Names="Consolas">
                                         <asp:ListItem>Please Select</asp:ListItem>
                                     </asp:DropDownList>
-                                &nbsp;&nbsp;
-                                    <asp:RequiredFieldValidator ID="requiredFieldName" runat="server" BorderStyle="None" ControlToValidate="ddListClients" ErrorMessage="Please select a client to delete." Font-Names="Consolas" ForeColor="Maroon"></asp:RequiredFieldValidator>
                                 </td>
                                 <td>&nbsp;</td>
                             </tr>
@@ -148,7 +147,7 @@
             </tr>
             </table>
         <p>
-            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Return to home page</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Retrun to home page</asp:HyperLink>
         </p>
     </form>
 </body>

@@ -57,7 +57,6 @@ namespace Group7_FeelingBrew_Final_Project
             Session["beerQty2"] = txtQty2.Text;
 
             lblMessage.Text = "Order placed!";
-
         }
     }
 }

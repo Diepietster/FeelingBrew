@@ -78,15 +78,6 @@ namespace Group7_FeelingBrew_Final_Project
         protected global::System.Web.UI.WebControls.TextBox txtFilterSuppliers;
 
         /// <summary>
-        /// btnFilter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFilter;
-
-        /// <summary>
         /// lblSupplierEdit control.
         /// </summary>
         /// <remarks>
@@ -195,13 +186,13 @@ namespace Group7_FeelingBrew_Final_Project
         protected global::System.Web.UI.WebControls.TextBox txtSStreetNo;
 
         /// <summary>
-        /// requiredFieldProvince0 control.
+        /// rangeValStreetNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredFieldProvince0;
+        protected global::System.Web.UI.WebControls.RangeValidator rangeValStreetNo;
 
         /// <summary>
         /// lblStreetname control.

@@ -29,7 +29,7 @@
             width: 165px;
         }
         .auto-style7 {
-            width: 326px;
+            width: 643px;
         }
         .auto-style8 {
             width: 100%;
@@ -37,6 +37,17 @@
     </style>
 </head>
 <body>
+    <div id="google_translate_element"></div>  
+       <script type="text/javascript">  
+                                   function googleTranslateElementInit() {  
+                                   new google.translate.TranslateElement  
+                                   ({ pageLanguage: 'en',   
+                                   layout: google.translate.TranslateElement.InlineLayout.SIMPLE },   
+                                   'google_translate_element');  
+                               }  
+       </script><script type="text/javascript"   
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">  
+    </script> 
     <form id="form1" runat="server">
         <div>
             <table style="width:100%;">
@@ -68,9 +79,9 @@
                                     <asp:Label ID="lblsubHeading0" runat="server" Font-Names="Consolas" Text="Sales Orders:" Font-Bold="True" Font-Size="Large"></asp:Label>
                                 </td>
                             <td class="auto-style7">
-                    <asp:Button ID="btnPlaceSO" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="39px" Text="Place Order" Width="110px" OnClick="btnPlaceSO_Click" />
+                    <asp:Button ID="btnPlaceSO" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="39px" Text="Place Order" Width="160px" OnClick="btnPlaceSO_Click" />
                 &nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnViewSO" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="39px" Text="View Orders" Width="110px" OnClick="btnViewSO_Click" />
+                    <asp:Button ID="btnViewSO" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="39px" Text="View Orders" Width="160px" OnClick="btnViewSO_Click" />
                             </td>
                             <td>&nbsp;</td>
                         </tr>
@@ -89,9 +100,10 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style5">&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style5"></td>
+                <td>Need help?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" OnClientClick="target = '_blank';" Text="Help" />
+                &nbsp;&nbsp; </td>
+                <td></td>
             </tr>
             <tr>
                 <td class="auto-style5">&nbsp;</td>

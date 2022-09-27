@@ -151,13 +151,6 @@
     <Compile Include="DeleteSupplier.aspx.designer.cs">
       <DependentUpon>DeleteSupplier.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Entities\City.cs" />
-    <Compile Include="Entities\Client.cs" />
-    <Compile Include="Entities\LoginUser.cs" />
-    <Compile Include="Entities\Province.cs" />
-    <Compile Include="Entities\Supplier.cs" />
-    <Compile Include="Helper Methods\HelperMethods.cs" />
-    <Compile Include="Email Class\Email.cs" />
     <Compile Include="HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

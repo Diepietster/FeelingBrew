@@ -59,6 +59,17 @@
         </style>
 </head>
 <body>
+    <div id="google_translate_element"></div>  
+       <script type="text/javascript">  
+                                   function googleTranslateElementInit() {  
+                                   new google.translate.TranslateElement  
+                                   ({ pageLanguage: 'en',   
+                                   layout: google.translate.TranslateElement.InlineLayout.SIMPLE },   
+                                   'google_translate_element');  
+                               }  
+       </script><script type="text/javascript"   
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">  
+    </script> 
     <form id="form1" runat="server">
         <div>
         <div>
@@ -112,8 +123,6 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="txtFilterSuppliers" runat="server" Width="230px" Font-Names="Consolas" CssClass="auto-style25"></asp:TextBox>
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnFilter" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="30px" Text="Filter" Width="141px"  CausesValidation="False" OnClick="btnFilter_Click"  />
                                 </td>
                                 <td>&nbsp;</td>
                             </tr>
@@ -122,7 +131,7 @@
                                     <asp:Label ID="lblSupplierEdit" runat="server" Font-Names="Consolas" Text="Select supplier to edit:"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:DropDownList ID="ddListSupplier" runat="server" Font-Names="Consolas" AutoPostBack="True" OnSelectedIndexChanged="ddListSupplier_SelectedIndexChanged">
+                                    <asp:DropDownList ID="ddListSupplier" runat="server" Font-Names="Consolas">
                                         <asp:ListItem>Please Select</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
@@ -194,7 +203,7 @@
                                     <asp:TextBox ID="txtSStreetNo" runat="server" Width="230px" Font-Names="Consolas"></asp:TextBox>
                                 </td>
                                 <td class="auto-style2">
-                                    <asp:RequiredFieldValidator ID="requiredFieldProvince0" runat="server" ControlToValidate="txtSStreetNo" ErrorMessage="Please enter street number." Font-Names="Consolas" ForeColor="Maroon" InitialValue="Please Select"></asp:RequiredFieldValidator>
+                                    <asp:RangeValidator ID="rangeValStreetNo" runat="server" ControlToValidate="txtSStreetNo" ErrorMessage="Please enter valid street number." Font-Names="Consolas" ForeColor="Maroon" MaximumValue="9999999" MinimumValue="0" Type="Integer"></asp:RangeValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -312,7 +321,7 @@
             </tr>
             </table>
         <p>
-            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Return to home page</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Retrun to home page</asp:HyperLink>
         </p>
     </form>
 </body>

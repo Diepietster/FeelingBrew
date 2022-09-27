@@ -107,7 +107,7 @@ namespace Group7_FeelingBrew_Final_Project
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Help.pdf");
+            Response.Redirect("~/AdminHelp.pdf");
         }
     }
 }

@@ -64,6 +64,9 @@
             text-align: right;
             width: 376px;
         }
+        .auto-style18 {
+            width: 376px;
+        }
         .auto-style19 {
             width: 114px;
         }
@@ -76,6 +79,17 @@
     </style>
 </head>
 <body>
+    <div id="google_translate_element"></div>  
+       <script type="text/javascript">  
+                                   function googleTranslateElementInit() {  
+                                   new google.translate.TranslateElement  
+                                   ({ pageLanguage: 'en',   
+                                   layout: google.translate.TranslateElement.InlineLayout.SIMPLE },   
+                                   'google_translate_element');  
+                               }  
+       </script><script type="text/javascript"   
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">  
+    </script> 
     <form id="form1" runat="server">
         <div>
             <table style="width:100%;">
@@ -127,8 +141,6 @@
                                 </td>
                                 <td class="auto-style21">
                                     <asp:TextBox ID="txtFilterClients" runat="server" Width="230px" Font-Names="Consolas"></asp:TextBox>
-                                &nbsp;&nbsp;
-                    <asp:Button ID="btnFilter" runat="server" Font-Names="Consolas" Font-Size="Medium" Height="30px" Text="Filter" Width="141px" OnClick="btnFilter_Click" CausesValidation="False"  />
                                 </td>
                                 <td>&nbsp;</td>
                             </tr>
@@ -137,7 +149,7 @@
                                     <asp:Label ID="lblClientEdit" runat="server" Font-Names="Consolas" Text="Select client to edit:"></asp:Label>
                                 </td>
                                 <td class="auto-style21">
-                                    <asp:DropDownList ID="ddListClients" runat="server" Font-Names="Consolas" AutoPostBack="True" OnSelectedIndexChanged="ddListClients_SelectedIndexChanged">
+                                    <asp:DropDownList ID="ddListClients" runat="server" Font-Names="Consolas">
                                         <asp:ListItem>Please Select</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
@@ -183,7 +195,19 @@
                                     <asp:TextBox ID="txtCSurname" runat="server" Width="230px" Font-Names="Consolas"></asp:TextBox>
                                 </td>
                                 <td class="auto-style9">
-                                    &nbsp;</td>
+                                    <asp:RequiredFieldValidator ID="requiredFieldSurname" runat="server" ControlToValidate="txtCSurname" ErrorMessage="Please enter a client surname." Font-Names="Consolas" ForeColor="Maroon"></asp:RequiredFieldValidator>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style4">
+                                    <asp:Label ID="lblCompany" runat="server" Font-Names="Consolas" Text="Company name:"></asp:Label>
+                                &nbsp;
+                                    <asp:Label ID="lblOptional" runat="server" Font-Names="Consolas" Text="(*optional)" Font-Size="Smaller"></asp:Label>
+                                </td>
+                                <td class="auto-style6">
+                                    <asp:TextBox ID="txtCompanyName" runat="server" Width="230px" Font-Names="Consolas"></asp:TextBox>
+                                </td>
+                                <td class="auto-style14">&nbsp;</td>
                             </tr>
                             <tr>
                                 <td class="auto-style4">
@@ -193,9 +217,9 @@
                                     <asp:TextBox ID="txtCCellphone" runat="server" Width="230px" Font-Names="Consolas"></asp:TextBox>
                                 </td>
                                 <td class="auto-style14">
-                                    <asp:RequiredFieldValidator ID="requiredFieldCellNo" runat="server" ControlToValidate="txtCCellphone" ErrorMessage="Please enter a client cellphone number." Font-Names="Consolas" ForeColor="Maroon"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="requiredFieldCellNo" runat="server" ControlToValidate="txtCSurname" ErrorMessage="Please enter a client cellphone number." Font-Names="Consolas" ForeColor="Maroon"></asp:RequiredFieldValidator>
                                     <br />
-                                    <asp:RegularExpressionValidator ID="regExpresionCellNo" runat="server" ControlToValidate="txtCCellphone" ErrorMessage="Please enter valid cellphone number (e.g., 0999999999)." Font-Names="Consolas" ForeColor="Maroon" ValidationExpression="^([\(]{1}[0-9]{3}[\)]{1}[\.| |\-]{0,1}|^[0-9]{3}[\.|\-| ]?)?[0-9]{3}(\.|\-| )?[0-9]{4}$"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator ID="regExpresionCellNo" runat="server" ControlToValidate="txtCCellphone" ErrorMessage="Please enter valid cellphone number." Font-Names="Consolas" ForeColor="Maroon" ValidationExpression="^([\(]{1}[0-9]{3}[\)]{1}[\.| |\-]{0,1}|^[0-9]{3}[\.|\-| ]?)?[0-9]{3}(\.|\-| )?[0-9]{4}$"></asp:RegularExpressionValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -228,7 +252,7 @@
                                     <asp:TextBox ID="txtCStreetNo" runat="server" Width="230px" Font-Names="Consolas"></asp:TextBox>
                                 </td>
                                 <td class="auto-style2">
-                                    <asp:RequiredFieldValidator ID="requiredFieldProvince0" runat="server" ControlToValidate="txtCStreetNo" ErrorMessage="Please enter a street number." Font-Names="Consolas" ForeColor="Maroon" InitialValue="Please Select"></asp:RequiredFieldValidator>
+                                    <asp:RangeValidator ID="rangeValStreetNo" runat="server" ControlToValidate="txtCStreetNo" ErrorMessage="Please enter valid street number." Font-Names="Consolas" ForeColor="Maroon" MaximumValue="9999999" MinimumValue="0" Type="Integer"></asp:RangeValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -299,7 +323,7 @@
             </tr>
             </table>
         <p>
-            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Return to home page</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Retrun to home page</asp:HyperLink>
         </p>
     </form>
 </body>

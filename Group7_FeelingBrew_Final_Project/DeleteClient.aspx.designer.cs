@@ -78,15 +78,6 @@ namespace Group7_FeelingBrew_Final_Project
         protected global::System.Web.UI.WebControls.TextBox txtFilterClients;
 
         /// <summary>
-        /// btnFilter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFilter;
-
-        /// <summary>
         /// lblClientDlt control.
         /// </summary>
         /// <remarks>
@@ -103,15 +94,6 @@ namespace Group7_FeelingBrew_Final_Project
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddListClients;
-
-        /// <summary>
-        /// requiredFieldName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredFieldName;
 
         /// <summary>
         /// btnDelete control.

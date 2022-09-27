@@ -57,6 +57,17 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <div id="google_translate_element"></div>  
+       <script type="text/javascript">  
+                                   function googleTranslateElementInit() {  
+                                   new google.translate.TranslateElement  
+                                   ({ pageLanguage: 'en',   
+                                   layout: google.translate.TranslateElement.InlineLayout.SIMPLE },   
+                                   'google_translate_element');  
+                               }  
+       </script><script type="text/javascript"   
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">  
+    </script> 
             <table class="auto-style20">
                 <tr>
                     <td class="auto-style18"></td>
@@ -122,7 +133,7 @@
                                     <asp:TextBox ID="txtSStreetNo" runat="server" Width="230px" Font-Names="Consolas"></asp:TextBox>
                                 </td>
                                 <td class="auto-style2">
-                                    <asp:RequiredFieldValidator ID="requiredFieldStreetname1" runat="server" BorderStyle="None" ControlToValidate="txtSStreetNo" ErrorMessage="Please enter a street number." Font-Names="Consolas" ForeColor="Maroon"></asp:RequiredFieldValidator>
+                                    <asp:RangeValidator ID="rangeValStreetNo" runat="server" ControlToValidate="txtSStreetNo" ErrorMessage="Please enter valid street number." Font-Names="Consolas" ForeColor="Maroon" MaximumValue="9999999" MinimumValue="0" Type="Integer"></asp:RangeValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -190,7 +201,10 @@
                             a{
                              text-decoration: none;
                              }
-                            .auto-style17 {
+                            .auto-style16 {
+                            width: 813px;
+                        }
+                        .auto-style17 {
                             width: 813px;
                             text-align: right;
                         }
@@ -203,6 +217,13 @@
                         }
                         .auto-style20 {
                             width: 100%;
+                        }
+                            .auto-style21 {
+                            width: 813px;
+                            height: 23px;
+                        }
+                        .auto-style22 {
+                            height: 23px;
                         }
                             </style>
                 </td>
@@ -239,7 +260,7 @@
             </tr>
             </table>
         <p>
-            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Return to home page</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" Font-Names="Consolas" NavigateUrl="~/HomePage.aspx">Retrun to home page</asp:HyperLink>
         </p>
     </form>
 </body>
